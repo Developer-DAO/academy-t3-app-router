@@ -9,6 +9,7 @@ import type { FunctionComponent } from "react";
 import { type NavItem, TopBar } from "./TopBar";
 import { SideBar } from "./SideBar";
 import { cn } from "@/lib/utils";
+import ConnectWallet from "@/components/ConnectWallet";
 // import ThemeToggleButton from "@/components/ThemeToggleButton";
 
 const topbarNavMenus: NavItem[] = [
@@ -68,14 +69,14 @@ const PageHeader: FunctionComponent = () => {
       pathname === "/fundamentals" ? (
         <div className="inline-flex gap-2">
           {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
-          <button>connect wallet..</button>
+          <ConnectWallet />
         </div>
       ) : (
         <>
           <BackButton className="lg:hidden" />
           <div className="hidden gap-2 lg:inline-flex">
             {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
-            <button>connect wallet..</button>
+            <ConnectWallet />
           </div>
         </>
       )}
@@ -94,7 +95,7 @@ const PageHeader: FunctionComponent = () => {
             ]}
           />
         ) : (
-          <button>connect wallet..</button>
+          <ConnectWallet />
         )}
       </div>
     </header>

@@ -5,7 +5,7 @@
 await import("./src/env.js");
 import nextMDX from "@next/mdx";
 import remarkFrontmatter from "remark-frontmatter";
-import withPlugins from "next-compose-plugins";
+// import withPlugins from "next-compose-plugins";
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -32,6 +32,8 @@ const config = {
   transpilePackages: ["ui", "utils", "database"],
   webpack: (config /* , { isServer } */) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+
     // if (isServer) {
     //   config.plugins = [...config.plugins, new PrismaPlugin()];
     // }
@@ -61,14 +63,16 @@ const config = {
   },
 };
 
-export default withPlugins(
-  [
-    // [withBundleAnalyzer({ enabled: !!process.env.ANALYZE })],
-    // withPWA({
-    //   dest: "public",
-    //   disable: process.env.NODE_ENV === "development",
-    // }),
-    withMDX(config),
-  ],
-  // config,
-);
+export default withMDX(config);
+
+// export default withPlugins(
+// [
+// [withBundleAnalyzer({ enabled: !!process.env.ANALYZE })],
+// withPWA({
+//   dest: "public",
+//   disable: process.env.NODE_ENV === "development",
+// }),
+// withMDX(config),
+// ],
+// config,
+// );

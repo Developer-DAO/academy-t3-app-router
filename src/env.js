@@ -24,6 +24,8 @@ const server = z.object({
   // DISCORD_CLIENT_SECRET: z.string(),
   ENVIRONMENT: z.enum(["local", "staging", "production"]),
   SENDGRID_API_KEY: z.string().min(1),
+  THIRDWEB_SECRET_KEY: z.string().min(1),
+  THIRDWEB_ADMIN_PRIVATE_KEY: z.string().min(1),
 });
 
 /**
@@ -33,6 +35,8 @@ const server = z.object({
 const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
   NEXT_PUBLIC_WALLET_CONNECT_ID: z.string().min(1),
+  NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN: z.string().min(1),
+  NEXT_PUBLIC_THIRDWEB_CLIENT_ID: z.string().min(1),
 });
 
 /**
@@ -51,6 +55,11 @@ const processEnv = {
   NEXT_PUBLIC_WALLET_CONNECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_ID,
   ENVIRONMENT: process.env.ENVIRONMENT,
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+  NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN:
+    process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN,
+  NEXT_PUBLIC_THIRDWEB_CLIENT_ID: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID,
+  THIRDWEB_SECRET_KEY: process.env.THIRDWEB_SECRET_KEY,
+  THIRDWEB_ADMIN_PRIVATE_KEY: process.env.THIRDWEB_ADMIN_PRIVATE_KEY,
 };
 
 // Don't touch the part below
