@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_PRISMA_URL")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model User {
+  id               String             @id @default(cuid())
+  name             String?
+  address          String?            @unique
+  email            String?            @unique
+  emailSent        Boolean            @default(false)
+  emailVerified    DateTime?
+  verificationNumber Int? 
+  image            String?
+  createdAt        DateTime           @default(now())
+  accounts         Account[]
+  CompletedQuizzes CompletedQuizzes[]
+}
+
+model CompletedQuizzes {
+  id        String   @id @default(cuid())
+  lesson   Lessons @relation(fields: [lessonId], references: [id])
+  lessonId    String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lessons {
+  id        String   @id @default(cuid())
+  projectLessonNumber Int?   @unique 
+  fundamentalLessonName String?
+  quizFileName      String
+  lessonTitle String
+  authors String[]
+  imgPath String
+  lessonDescription String
+  lessonPath String
+  tags TagsOnLessons[]
+  contributors ContributorsOnLessons[]
+  track Tracks @relation(fields: [trackId], references: [id], onDelete: NoAction)
+  trackId String
+  completedQuizzes CompletedQuizzes[]
+  order Int?
+  productionVisible Boolean @default(true)
+  stagingVisible Boolean @default(true)
+  visible Boolean @default(true)
+  nextLessonPath String?
+  // twitterShareUrl String?
+}
+  
+  model Tags {
+  id String @id @default(cuid())
+  tagName String
+  tagDescription String
+  lessons TagsOnLessons[]
+  tracks TagsOnTracks[]
+}
+
+model TagsOnLessons {
+  id String @default(cuid())
+  lesson       Lessons     @relation(fields: [lessonId], references: [id])
+  lessonId     String // relation scalar field (used in the `@relation` attribute above)
+  tag   Tags @relation(fields: [tagId], references: [id])
+  tagId String // relation scalar field (used in the `@relation` attribute above)
+  assignedAt DateTime @default(now())
+  @@id([lessonId, tagId])
+}
+
+
+
+model Tracks {
+  id String @id @default(cuid())
+  trackName String
+  trackTitle String
+  authors String[]
+  imgPath String
+  trackDescription String
+  tags TagsOnTracks[]
+  trackPath String
+  lessons Lessons[]
+  order Int?
+  productionVisible Boolean @default(true)
+  stagingVisible Boolean @default(true)
+  visible Boolean @default(true)
+  contributors ContributorsOnTracks[]
+}
+
+model TagsOnTracks {
+  id String @default(cuid())
+  track       Tracks     @relation(fields: [trackId], references: [id])
+  trackId     String // relation scalar field (used in the `@relation` attribute above)
+  tag   Tags @relation(fields: [tagId], references: [id])
+  tagId String // relation scalar field (used in the `@relation` attribute above)
+  assignedAt DateTime @default(now())
+  @@id([trackId, tagId])
+}
+
+model Contributors {
+  id String  @id @default(cuid())
+  name String
+  description String
+  image String
+  position String
+  twitter String
+  lessons ContributorsOnLessons[]
+  tracks ContributorsOnTracks[]
+}
+
+model ContributorsOnLessons {
+  id String @default(cuid())
+  lesson       Lessons     @relation(fields: [lessonId], references: [id])
+  lessonId     String
+  contributor   Contributors @relation(fields: [contributorId], references: [id])
+  contributorId String
+  assignedAt DateTime @default(now())
+  typeOfContribution String 
+  @@id([lessonId, contributorId])
+}
+
+model ContributorsOnTracks {
+  id String @default(cuid())
+  track       Tracks     @relation(fields: [trackId], references: [id])
+  trackId     String
+  contributor   Contributors @relation(fields: [contributorId], references: [id])
+  contributorId String
+  assignedAt DateTime @default(now())
+  typeOfContribution String 
+  @@id([trackId, contributorId])
+}
