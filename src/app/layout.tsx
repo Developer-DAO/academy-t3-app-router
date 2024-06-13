@@ -1,10 +1,13 @@
 import "@/styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
 
 import { GeistSans } from "geist/font/sans";
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Providers from "@/components/Providers";
+import SessionProvider from "@/components/SessionProvider";
+import { getServerSession } from "next-auth";
 
 export const metadata = {
   title: "Create T3 App",
@@ -12,19 +15,23 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <Providers>
-          <Header />
-          <main /* className={fontVars} */>{children}</main>
-          <Footer />
-        </Providers>
+        <SessionProvider session={session}>
+          <Providers>
+            <Header />
+            <main /* className={fontVars} */>{children}</main>
+            <Footer />
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );
