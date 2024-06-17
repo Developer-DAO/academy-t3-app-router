@@ -4,12 +4,12 @@ description: TODO
 icons: ["arweave", "fundamentals"]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import Question from "../../../components/mdx/Question";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import LessonInformationalModal from "../../../components/mdx/LessonInformationalModal";
+import LessonLayout from "../../../../components/LessonLayout";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import Question from "../../../../components/mdx/Question";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
+import LessonInformationalModal from "../../../../components/mdx/LessonInformationalModal";
 
 <LessonLayout
    lessonTitle="Storing Data on Arweave"
@@ -83,28 +83,30 @@ Replace the content of `demo-frontend/index.html` with the following code:
   import arweave from "arweave";
   import { TurboFactory } from "@ardrive/turbo-sdk/web";
 
-  document.getElementById("uploadForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
+  document
+    .getElementById("uploadForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-    const file = event.currentTarget.elements.fileInput.files[0];
-    if (file.size / 1024 > 100) return alert("File is bigger than 100KiB!");
+      const file = event.currentTarget.elements.fileInput.files[0];
+      if (file.size / 1024 > 100) return alert("File is bigger than 100KiB!");
 
-    const turbo = TurboFactory.authenticated({
-      privateKey: await arweave.crypto.generateJWK(),
-    });
+      const turbo = TurboFactory.authenticated({
+        privateKey: await arweave.crypto.generateJWK(),
+      });
 
-    const uploadResult = await turbo.uploadFile({
-      fileStreamFactory: () => file.stream(),
-      fileSizeFactory: () => file.size,
-    });
+      const uploadResult = await turbo.uploadFile({
+        fileStreamFactory: () => file.stream(),
+        fileSizeFactory: () => file.size,
+      });
 
-    const fileUrl = `https://arweave.developerdao.com/${uploadResult.id}`;
-    const liElement = document.createElement("li");
-    liElement.innerHTML = `
+      const fileUrl = `https://arweave.developerdao.com/${uploadResult.id}`;
+      const liElement = document.createElement("li");
+      liElement.innerHTML = `
         ${file.name}: <a href="${fileUrl}" target="_blank">${fileUrl}</a>
       `;
-    document.getElementById("fileList").appendChild(liElement);
-  });
+      document.getElementById("fileList").appendChild(liElement);
+    });
 </script>
 ```
 
@@ -113,8 +115,8 @@ You can test the app with this command:
     `npm run dev`
 
 <Callout emoji="💡">
-  Note: For the next step, remember that files on Arweave are permanently stored, so don’t upload
-  sensitive information!
+  Note: For the next step, remember that files on Arweave are permanently
+  stored, so don’t upload sensitive information!
 </Callout>
 
 Open the URL of the development server in your browser, choose a file smaller than 100KiB, and click the “Upload” button. After a few seconds, you should see a new link that allows you to download and share your file. Figure 1 shows an example upload.
@@ -196,7 +198,9 @@ Again, you will use the Turbo SDK, which lets you pay with fiat. Since you pay u
 
 Go to the [ArConnect download page](https://www.arconnect.io/download) and follow the instructions to install the wallet and create your first address.
 
-<Callout emoji="💡">Note: You should only use this address for development purposes.</Callout>
+<Callout emoji="💡">
+  Note: You should only use this address for development purposes.
+</Callout>
 
 ### Upload via Front-end
 
@@ -220,8 +224,8 @@ export default defineConfig({
 ```
 
 <Callout emoji="💡">
-  Note: A polyfill is a library that adds missing language or runtime features to your environment.
-  For example Buffer is only natively available on Node.js.
+  Note: A polyfill is a library that adds missing language or runtime features
+  to your environment. For example Buffer is only natively available on Node.js.
 </Callout>
 
 Next, you implement the front-end. Again, first the explanation, then the code. While this is under 100 lines of code, it’s still a bit much at once, so let’s look at the rendered HTML in Figure 2 to understand how this will look in the browser and then go through the code step by step.
@@ -239,8 +243,8 @@ The “Connect Wallet” button asks ArConnect for wallet permissions required b
 The “Buy” button calls the Turbo SDK to start a Stripe checkout session and opens it in a new tab. Here, you can buy Turbo Credits (the token required for uploads with the Turbo SDK). This will work either with Google Pay or a credit card.
 
 <Callout emoji="💸">
-  If you want to try a larger upload for yourself, get 20% off of one Turbo Credits purchase with
-  promo code: `DDDISCOUNT`
+  If you want to try a larger upload for yourself, get 20% off of one Turbo
+  Credits purchase with promo code: `DDDISCOUNT`
 </Callout>
 
 The “Choose file” input lets you choose a file from your disk and will calculate the size and costs of uploading that file to Arweave. Everything under 100 KiB is still free.
@@ -280,62 +284,72 @@ Now to the actual code. Replace the content of the `demo-frontend-big/index.html
   import { TurboFactory, USD } from "@ardrive/turbo-sdk/web";
 
   let turbo;
-  document.getElementById("connectButton").addEventListener("click", async () => {
-    await window.arweaveWallet.connect([
-      "ACCESS_ADDRESS",
-      "ACCESS_PUBLIC_KEY",
-      "SIGNATURE",
-      "SIGN_TRANSACTION",
-    ]);
-    turbo = TurboFactory.authenticated({
-      signer: new ArconnectSigner(window.arweaveWallet),
+  document
+    .getElementById("connectButton")
+    .addEventListener("click", async () => {
+      await window.arweaveWallet.connect([
+        "ACCESS_ADDRESS",
+        "ACCESS_PUBLIC_KEY",
+        "SIGNATURE",
+        "SIGN_TRANSACTION",
+      ]);
+      turbo = TurboFactory.authenticated({
+        signer: new ArconnectSigner(window.arweaveWallet),
+      });
+
+      const activeAddress = await window.arweaveWallet.getActiveAddress();
+      document.getElementById("walletAddress").innerText = activeAddress;
+      const balance = await turbo.getBalance();
+      document.getElementById("walletBalance").innerText =
+        balance.winc / 1_000_000_000_000;
     });
 
-    const activeAddress = await window.arweaveWallet.getActiveAddress();
-    document.getElementById("walletAddress").innerText = activeAddress;
-    const balance = await turbo.getBalance();
-    document.getElementById("walletBalance").innerText = balance.winc / 1_000_000_000_000;
-  });
+  document
+    .getElementById("chargeButton")
+    .addEventListener("click", async () => {
+      const result = await turbo.createCheckoutSession({
+        amount: USD(5.0),
+        owner: activeAddress,
+        promoCodes: ["DDDISCOUNT"], // 20% discount
+      });
 
-  document.getElementById("chargeButton").addEventListener("click", async () => {
-    const result = await turbo.createCheckoutSession({
-      amount: USD(5.0),
-      owner: activeAddress,
-      promoCodes: ["DDDISCOUNT"], // 20% discount
+      const checkoutButton = document.getElementById("checkoutButton");
+      chargeButton.onclick = () => window.open(result.url, "_blank").focus();
     });
 
-    const checkoutButton = document.getElementById("checkoutButton");
-    chargeButton.onclick = () => window.open(result.url, "_blank").focus();
-  });
+  document
+    .getElementById("fileInput")
+    .addEventListener("change", async (event) => {
+      const fileSizeInKib = Math.ceil(event.currentTarget.files[0].size / 1024);
+      document.getElementById("fileSize").innerText = fileSizeInKib;
+      const [costs] = await turbo.getUploadCosts({
+        bytes: [event.currentTarget.files[0].size],
+      });
 
-  document.getElementById("fileInput").addEventListener("change", async (event) => {
-    const fileSizeInKib = Math.ceil(event.currentTarget.files[0].size / 1024);
-    document.getElementById("fileSize").innerText = fileSizeInKib;
-    const [costs] = await turbo.getUploadCosts({
-      bytes: [event.currentTarget.files[0].size],
+      if (fileSizeInKib > 100)
+        document.getElementById("uploadCosts").innerText =
+          costs.winc / 1_000_000_000_000;
     });
 
-    if (fileSizeInKib > 100)
-      document.getElementById("uploadCosts").innerText = costs.winc / 1_000_000_000_000;
-  });
+  document
+    .getElementById("uploadForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-  document.getElementById("uploadForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
+      const file = event.currentTarget.elements.fileInput.files[0];
 
-    const file = event.currentTarget.elements.fileInput.files[0];
+      const uploadResult = await turbo.uploadFile({
+        fileStreamFactory: () => file.stream(),
+        fileSizeFactory: () => file.size,
+      });
 
-    const uploadResult = await turbo.uploadFile({
-      fileStreamFactory: () => file.stream(),
-      fileSizeFactory: () => file.size,
-    });
-
-    const fileUrl = `https://arweave.developerdao.com/${uploadResult.id}`;
-    const liElement = document.createElement("li");
-    liElement.innerHTML = `
+      const fileUrl = `https://arweave.developerdao.com/${uploadResult.id}`;
+      const liElement = document.createElement("li");
+      liElement.innerHTML = `
         ${file.name}: <a href="${fileUrl}" target="_blank">${fileUrl}</a>
       `;
-    document.getElementById("fileList").appendChild(liElement);
-  });
+      document.getElementById("fileList").appendChild(liElement);
+    });
 </script>
 ```
 
@@ -363,7 +377,9 @@ import fs from "fs";
 import readline from "readline/promises";
 import { ArweaveSigner, TurboFactory } from "@ardrive/turbo-sdk";
 
-const signer = new ArweaveSigner(JSON.parse(fs.readFileSync("./key.json", { encoding: "utf-8" })));
+const signer = new ArweaveSigner(
+  JSON.parse(fs.readFileSync("./key.json", { encoding: "utf-8" })),
+);
 const turbo = TurboFactory.authenticated({ signer });
 
 const filePath = new URL(process.argv[2], import.meta.url).pathname;

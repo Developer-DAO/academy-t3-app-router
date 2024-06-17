@@ -28,7 +28,7 @@ const config = {
     ],
   },
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  pageExtensions: ["md", "mdx", "ts", "tsx", "js", "jsx"],
   transpilePackages: ["ui", "utils", "database"],
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };

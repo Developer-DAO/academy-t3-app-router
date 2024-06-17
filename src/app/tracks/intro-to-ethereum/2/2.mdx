@@ -4,9 +4,9 @@ description: Introduction to Ethereum with web3.py and Python.
 icons: ["ethereum"]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
+import LessonLayout from "../../../../components/LessonLayout";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
 
 <LessonLayout 
   lessonTitle="A Developer's Guide to Ethereum, Pt. 2" 
@@ -35,10 +35,11 @@ for developers, so return to Part 1 if you skipped it or need a refresher.
 We’re going to take a deeper look at how you can interact with the Ethereum network, starting with accounts. There are some significant differences between Ethereum accounts and Web 2.0 accounts.
 
 <Callout emoji="💡">
-  **Note**: “Web 2.0” was coined to describe the Internet era that introduced user-generated
-  content, e.g., social media and blogs. Ethereum and other decentralized technologies are said to
-  be a part of the next generation of the Internet: **Web 3.0**. The abbreviation, **Web3**, is used
-  by libraries like web3.js and web3.py, and elsewhere around the ecosystem.
+  **Note**: “Web 2.0” was coined to describe the Internet era that introduced
+  user-generated content, e.g., social media and blogs. Ethereum and other
+  decentralized technologies are said to be a part of the next generation of the
+  Internet: **Web 3.0**. The abbreviation, **Web3**, is used by libraries like
+  web3.js and web3.py, and elsewhere around the ecosystem.
 </Callout>
 
 ## Web2 vs. Web3
@@ -48,9 +49,9 @@ It’s hard not to collect accounts in today’s web. You have one for each soci
 Web3 represents a paradigm shift for account management: you and you alone own your Ethereum accounts. When you create an account, it’s done outside of the scope of any company and can travel with you to multiple apps. In fact, creating an Ethereum account doesn’t require interaction with the Ethereum blockchain at all. Let’s create one now to prove it.
 
 <Callout emoji="💡">
-  **Note**: This exercise is purely for educational purposes. Don't store real value in an account
-  unless you understand the security implications. Some mistakes cannot be undone! More context to
-  come.
+  **Note**: This exercise is purely for educational purposes. Don't store real
+  value in an account unless you understand the security implications. Some
+  mistakes cannot be undone! More context to come.
 </Callout>
 
 ## Creating an account
@@ -224,9 +225,9 @@ As an example, an NFT marketplace may allow you to bid on items for sale by sign
 Unlike transactions, signed messages cost nothing. They aren't broadcast to the network and aren't included in a block. A message is simply a bit of data signed with a private key. As you would expect, the private key of the sender remains hidden, but the receiver can mathematically prove the public address of the sender. In other words, the message sender can't be spoofed.
 
 <Callout emoji="💡">
-  **Note**: the terms "onchain" and "offchain" are shorthand for whether data lives on the Ethereum
-  blockchain. For example, smart contract state is managed *onchain*, but message signing occurs
-  *offchain*.
+  **Note**: the terms "onchain" and "offchain" are shorthand for whether data
+  lives on the Ethereum blockchain. For example, smart contract state is managed
+  *onchain*, but message signing occurs *offchain*.
 </Callout>
 
 We'll save a deep dive into message signing for a future lesson, but here's some pseudocode to give you an idea of the workflow:

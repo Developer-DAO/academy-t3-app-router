@@ -1,16 +1,27 @@
 ---
 i18n: "smart-contracts"
 title: TierNFTs
-description: Write and deploy a Smart Contract for a Tier Based NFT. Builds on knowledge
+description:
+  Write and deploy a Smart Contract for a Tier Based NFT. Builds on knowledge
   from Lesson 2.
-icons: ["npm", "solidity", "hardhat", "openzeppelin", "ethereum", "etherscan", "opensea", "polygon"]
+icons:
+  [
+    "npm",
+    "solidity",
+    "hardhat",
+    "openzeppelin",
+    "ethereum",
+    "etherscan",
+    "opensea",
+    "polygon",
+  ]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import Question from "../../../components/mdx/Question";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import Callout from "../../../components/mdx/Callout";
+import LessonLayout from "../../../../components/LessonLayout";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
+import Question from "../../../../components/mdx/Question";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import Callout from "../../../../components/mdx/Callout";
 
 <LessonLayout
    lessonTitle="Multi Tiered NFTs: A User-Friendly Guide to Building ERC721 Collections"
@@ -70,7 +81,8 @@ remind, or check yourself on some prior knowledge.
   <Question question="lesson-3/1-intro/Q5" />
 </LessonQuestionsModal>
 <br />
-How did that go? No pressure if there were some gaps. We're here to bridge them together!
+How did that go? No pressure if there were some gaps. We're here to bridge them
+together!
 {/* ⌛ And
 have you set your pomodoro yet? 😊 🌱 */}
 
@@ -153,9 +165,9 @@ npx hardhat init
 ```
 
 <Callout emoji="💡">
-  The `--save-dev` flag used in the last command lets the project know it's a development
-  dependency, i.e., not needed in production. You can view what dependencies are needed in the
-  `package.json` file in the root of the project.
+  The `--save-dev` flag used in the last command lets the project know it's a
+  development dependency, i.e., not needed in production. You can view what
+  dependencies are needed in the `package.json` file in the root of the project.
 </Callout>
 
 Choose `Create a Javascript project` and hardhat will create an example project
@@ -1018,9 +1030,10 @@ Amoy. You will see the testnet network with chainID 80002. Add it to your
 wallet.
 
 <br />
-Note: **Always make sure to use a separate browser profile, with a separate wallet, holding only testnet
-tokens, for any tutorials. See our Fundamental on** *Introduction to web3 Wallets* **for background on
-your security, your private keys and your recovery seed phrases!**
+Note: **Always make sure to use a separate browser profile, with a separate
+wallet, holding only testnet tokens, for any tutorials. See our Fundamental on**
+*Introduction to web3 Wallets* **for background on your security, your private
+keys and your recovery seed phrases!**
 
 <br />
 ![2_chainlist-amoy-dark-theme](/assets/lessons/3/2_chainlist-amoy-dark-theme.png)
@@ -1069,9 +1082,10 @@ PRIVATE_KEY=f8abc629b...
 ```
 
 <Callout emoji="💡">
-  Also, make sure you have a line that says `.env` in the `.gitignore` file in your root folder. If
-  this file doesn't exist, create it and add that line! This makes sure we don't accidentally upload
-  our `.env` file to our public repositories by mistake.
+  Also, make sure you have a line that says `.env` in the `.gitignore` file in
+  your root folder. If this file doesn't exist, create it and add that line!
+  This makes sure we don't accidentally upload our `.env` file to our public
+  repositories by mistake.
 </Callout>
 
 Now we will run this command to install the `dotenv` package:
@@ -1176,7 +1190,10 @@ main().catch((error) => {
   `totalSupply()` function to check if the 3 NFTs minted correctly.
 
 <br />
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Getting Our Tokens Out to the World">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Getting Our Tokens Out to the World"
+>
   <Question question="lesson-3/4-deploy-scripts/Q1" />
   <Question question="lesson-3/4-deploy-scripts/Q2" />
   <Question question="lesson-3/4-deploy-scripts/Q3" />
@@ -1225,7 +1242,8 @@ three NFTs of your own, which you so diligently minted, the artist that you are!
 - Verify successful creation and market readiness of ERC721's on Opensea
 
 <br />
-**Now let's dive in with a little quiz, and see what you have learned along the way** 😉
+**Now let's dive in with a little quiz, and see what you have learned along the
+way** 😉
 
 <br />
 <br />
@@ -1234,8 +1252,9 @@ three NFTs of your own, which you so diligently minted, the artist that you are!
 
 <br />
 <br />
-How did you enjoy that? We hope you had fun. And what's next? We're going to bring your dev skills
-to the level. You ain't seen nothin' yet - we're going testing together.{" "}
+How did you enjoy that? We hope you had fun. And what's next? We're going to
+bring your dev skills to the level. You ain't seen nothin' yet - we're going
+testing together.{" "}
 
 Building culture in web3 is
 the substrate for the infrastructure we create, and learning to test what we build with real

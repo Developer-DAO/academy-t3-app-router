@@ -1,8 +1,18 @@
 ---
 title: Build a Basic NFT
-description: Write and deploy a Smart Contract for a Basic NFT. Builds on knowledge from
+description:
+  Write and deploy a Smart Contract for a Basic NFT. Builds on knowledge from
   Lesson 1.
-icons: ["npm", "solidity", "hardhat", "openzeppelin", "ethereum", "etherscan", "opensea"]
+icons:
+  [
+    "npm",
+    "solidity",
+    "hardhat",
+    "openzeppelin",
+    "ethereum",
+    "etherscan",
+    "opensea",
+  ]
 ---
 
 import CliLesson from "../../fundamentals/cli_lesson.mdx";
@@ -10,12 +20,12 @@ import InstallNpm from "../../fundamentals/install-npm.mdx";
 import OpenZeppelin from "../../fundamentals/open_zeppelin.mdx";
 import TokenStandards from "../../fundamentals/token-standards.mdx";
 import DecentralizedStorage from "../../fundamentals/decentralized-storage.mdx";
-import LessonLayout from "../../../components/LessonLayout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import Question from "../../../components/mdx/Question";
-import Callout from "../../../components/mdx/Callout";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import LessonInformationalModal from "../../../components/mdx/LessonInformationalModal";
+import LessonLayout from "../../../../components/LessonLayout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import Question from "../../../../components/mdx/Question";
+import Callout from "../../../../components/mdx/Callout";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
+import LessonInformationalModal from "../../../../components/mdx/LessonInformationalModal";
 
 <LessonLayout
    lessonTitle="Crafting a Basic NFT: A Step-by-Step ERC721 Tutorial for Beginners"
@@ -67,7 +77,8 @@ what's to come:
   <Question question="lesson-2/1-intro/Q4" />
   <Question question="lesson-2/1-intro/Q5" />
 </LessonQuestionsModal>
-How did you find that? No worries if the answers didn't come easily. We're here to fill in the gaps!{" "}
+How did you find that? No worries if the answers didn't come easily. We're here
+to fill in the gaps!{" "}
 
 ![thatd.be.great.jpeg](/assets/lessons/2/img_1.jpeg)
 
@@ -140,11 +151,17 @@ using `npm`, the package manager from Node, and its command `npx`that allows us
 to run or execute a package or one of its scripts. If you are comfortable with
 another package manager, feel free to use it.
 
-<LessonInformationalModal title=" " buttonText="Getting Started with the Command Line Interface">
+<LessonInformationalModal
+  title=" "
+  buttonText="Getting Started with the Command Line Interface"
+>
   <CliLesson />
 </LessonInformationalModal>
 
-<LessonInformationalModal title=" " buttonText="How to install NPM on your system">
+<LessonInformationalModal
+  title=" "
+  buttonText="How to install NPM on your system"
+>
   <InstallNpm />
 </LessonInformationalModal>
 
@@ -168,9 +185,9 @@ npm install --save-dev hardhat
 ```
 
 <Callout emoji="💡">
-  The `--save-dev` flag used in the last command, lets the project know it's a development
-  dependency, i.e. not needed in production. You can view what dependencies are needed in the
-  `package.json` file in the root of the project.
+  The `--save-dev` flag used in the last command, lets the project know it's a
+  development dependency, i.e. not needed in production. You can view what
+  dependencies are needed in the `package.json` file in the root of the project.
 </Callout>
 
 ## Create your project
@@ -272,8 +289,8 @@ npm install @openzeppelin/contracts
 ```
 
 <Callout emoji="💡">
-  Open Zeppelin developed a lot of standard contracts that are super powerful, widely used and fully
-  tested and audited.
+  Open Zeppelin developed a lot of standard contracts that are super powerful,
+  widely used and fully tested and audited.
 </Callout>
 <LessonInformationalModal buttonText="More on Open Zeppelin" title="">
   <OpenZeppelin />
@@ -408,7 +425,10 @@ We made our `totalSupply` variable `private` and it will store the exact number
 of NFTs that have been minted. In the next step we will use this variable to
 identify each new NFT that’s created.
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Solidity and Contracts in Context">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Solidity and Contracts in Context"
+>
   <Question question="lesson-2/3-sol-erc/Q1" />
   <Question question="lesson-2/3-sol-erc/Q2" />
   <Question question="lesson-2/3-sol-erc/Q3" />
@@ -628,7 +648,10 @@ For a one line explanation, nothing better than quoting the docs: “**IPFS is a
 distributed system for storing and accessing files, websites, applications, and
 data**”
 
-<LessonInformationalModal buttonText="More on Decentralized Storage" title="&nbsp;">
+<LessonInformationalModal
+  buttonText="More on Decentralized Storage"
+  title="&nbsp;"
+>
   <DecentralizedStorage />
 </LessonInformationalModal>
 
@@ -754,7 +777,11 @@ async function main() {
   const ContractFactory = await hre.ethers.getContractFactory(CONTRACT_NAME);
 
   // We deploy the contract (notice we pass 3 parameters that our contract's constructor needs)
-  const contract = await ContractFactory.deploy(NFT_NAME, NFT_DESCRIPTION, NFT_BASE_URI);
+  const contract = await ContractFactory.deploy(
+    NFT_NAME,
+    NFT_DESCRIPTION,
+    NFT_BASE_URI,
+  );
 
   // We wait for it to be deployed to the blockchain
   await contract.waitForDeployment();
@@ -961,7 +988,10 @@ Please, if you are already a developer, and you plan to use Git to store your
 project, don't store your `hardhat.config.js` on it, because you will have your
 private key there.
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Adopting Wise Developer Practices">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Adopting Wise Developer Practices"
+>
   <Question question="lesson-2/7-connect-real-world/Q1" />
   <Question question="lesson-2/7-connect-real-world/Q2" />
   <Question question="lesson-2/7-connect-real-world/Q3" />

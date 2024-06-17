@@ -1,17 +1,18 @@
 ---
 i18n: "erc20"
 title: Your own Token with Foundry
-description: Create and deploy an ERC-20 Token (UNI, MKR, DAI, etc.) using the Foundry
+description:
+  Create and deploy an ERC-20 Token (UNI, MKR, DAI, etc.) using the Foundry
   toolkit.
 icons: ["solidity", "foundry", "openzeppelin", "ethereum", "etherscan"]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import LessonInformationalModal from "../../../components/mdx/LessonInformationalModal";
-import Question from "../../../components/mdx/Question";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
+import LessonLayout from "../../../../components/LessonLayout";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import LessonInformationalModal from "../../../../components/mdx/LessonInformationalModal";
+import Question from "../../../../components/mdx/Question";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
 
 <LessonLayout
    lessonTitle="Your own ERC-20 Token: A Step-by-Step Guide using Foundry"
@@ -54,7 +55,10 @@ By the end of this lesson you will have created your own ERC-20 token, and you
 will be able to change its properties in any way you need. But before we go any
 further, let's check-in and see what building blocks you have already.
 
-<LessonQuestionsModal buttonText="Warm-up Questions" title="Check out Your Previous Knowledge">
+<LessonQuestionsModal
+  buttonText="Warm-up Questions"
+  title="Check out Your Previous Knowledge"
+>
   <Question question="lesson-6/1-intro/Q1" />
   <Question question="lesson-6/1-intro/Q2" />
   <Question question="lesson-6/1-intro/Q3" />
@@ -821,7 +825,10 @@ By filtering through the information, we can pay attention to the second line,
 where the tool tells us the address of the deployed contract:
 `0xec870005029ED5595F146f6AAAe699b442065b72`.
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Deploying with Foundry">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Deploying with Foundry"
+>
   <Question question="lesson-6/5-deployment/Q1" />
   <Question question="lesson-6/5-deployment/Q2" />
   <Question question="lesson-6/5-deployment/Q3" />

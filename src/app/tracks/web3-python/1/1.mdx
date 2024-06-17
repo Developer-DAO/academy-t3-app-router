@@ -1,8 +1,8 @@
-import LessonLayout from "../../../components/LessonLayout";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import Question from "../../../components/mdx/Question";
+import LessonLayout from "../../../../components/LessonLayout";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
+import Question from "../../../../components/mdx/Question";
 
 <LessonLayout
    lessonTitle="Python Smart Contract Development for Beginners, Pt. 1"
@@ -24,9 +24,10 @@ Welcome to the Python Smart Contract Development series, where you will learn ho
 # Vyper vs. Solidity
 
 <Callout emoji="💡">
-  TL;DR: Using Python in the Web3 space allows you to build, test, and deploy smart contracts
-  efficiently without switching languages, making it easier to transition to other tech stacks like
-  Solidity later, as many of the fundamentals are similar.
+  TL;DR: Using Python in the Web3 space allows you to build, test, and deploy
+  smart contracts efficiently without switching languages, making it easier to
+  transition to other tech stacks like Solidity later, as many of the
+  fundamentals are similar.
 </Callout>
 
 If you’re new to Web3 you may have come across an established language, **Solidity**. Like alternative languages in any domain, Solidity and Vyper have trade-offs. In general though, you can accomplish the same things in either language.
@@ -38,8 +39,8 @@ This lesson will introduce you to an alternative stack entirely using Python! Th
 ## Virtual environment
 
 <Callout emoji="💡">
-  TL;DR: Create a virtual environment with: `python3 -m venv ./myv`, then activate it using: `source
-  ./myv/bin/activate`.
+  TL;DR: Create a virtual environment with: `python3 -m venv ./myv`, then
+  activate it using: `source ./myv/bin/activate`.
 </Callout>
 
 As Pythonistas we like to keep a clean working environment, so we create virtual environments to install dependencies. A virtual environment is like creating a folder where we can install software and build our projects within a sandbox. If we want to use specific versions of our software, or something went wrong, we can just delete the virtual environment and create a new one easily.

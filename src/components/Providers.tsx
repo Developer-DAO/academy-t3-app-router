@@ -2,8 +2,6 @@
 
 import { TRPCReactProvider } from "@/trpc/react";
 
-import { MDXProvider } from "@mdx-js/react";
-import Components from "@/components/mdx/Components";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,16 +16,14 @@ const queryClient = new QueryClient();
 
 export default function Providers({ children }: Props) {
   return (
-    <MDXProvider components={Components}>
-      <WagmiProvider config={config}>
-        <QueryClientProvider client={queryClient}>
-          <RainbowKitSiweNextAuthProvider>
-            <RainbowKitProvider>
-              <TRPCReactProvider>{children}</TRPCReactProvider>
-            </RainbowKitProvider>
-          </RainbowKitSiweNextAuthProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
-    </MDXProvider>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitSiweNextAuthProvider>
+          <RainbowKitProvider>
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+          </RainbowKitProvider>
+        </RainbowKitSiweNextAuthProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }

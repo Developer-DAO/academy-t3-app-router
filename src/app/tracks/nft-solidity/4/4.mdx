@@ -4,11 +4,11 @@ description: Prove your TierNFT contract works! Builds on knowledge from Lesson 
 icons: ["solidity", "hardhat", "openzeppelin"]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import Question from "../../../components/mdx/Question";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
+import LessonLayout from "../../../../components/LessonLayout";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
+import Question from "../../../../components/mdx/Question";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
 
 <LessonLayout
   lessonTitle="Smart Contracts: Automated Testing and Test-Driven Development (TDD)"
@@ -48,7 +48,10 @@ while. 🌱 Embrace the process.
 
 Let's raise the sails to catch the wind of what's to come:
 
-<LessonQuestionsModal buttonText="Warm-up Questions" title="Check out Your Previous Knowledge">
+<LessonQuestionsModal
+  buttonText="Warm-up Questions"
+  title="Check out Your Previous Knowledge"
+>
   <Question question="lesson-4/1-intro/Q1" />
   <Question question="lesson-4/1-intro/Q2" />
   <Question question="lesson-4/1-intro/Q3" />
@@ -244,7 +247,10 @@ module.exports = {
 };
 ```
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Understanding our Environment">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Understanding our Environment"
+>
   <Question question="lesson-4/2-get-set-up/Q1" />
   <Question question="lesson-4/2-get-set-up/Q2" />
   <Question question="lesson-4/2-get-set-up/Q3" />
@@ -327,16 +333,17 @@ describe("TierNFT", function () {
 ```
 
 <Callout emoji="💡">
-  Before we walk through, let's make sure everything is working correctly. Run the tests using `npm
-  test` and you should see these two initial tests pass. **This is an important milestone! You
-  created your first tests and they now pass.**
+  Before we walk through, let's make sure everything is working correctly. Run
+  the tests using `npm test` and you should see these two initial tests pass.
+  **This is an important milestone! You created your first tests and they now
+  pass.**
 </Callout>
 
 Now let's walk through the test code we've pasted in and explain what it does.
 
 <Callout emoji="💡">
-  `expect()` from the Chai library is used to test various conditions. There are many examples in
-  this lesson.
+  `expect()` from the Chai library is used to test various conditions. There are
+  many examples in this lesson.
 </Callout>
 
 At the top we see constants with the name and symbol of the NFT collection:
@@ -399,10 +406,11 @@ They each call a method and verify the results. "Is the contract name really
 TierNFT?" "Is the contract symbol really Tier?"
 
 <Callout emoji="💡">
-  You'll notice a lot of `await` statements. That's because most of these calls are asynchronous.
-  Without `await` the program would keep going without waiting for the result. You may want to take
-  a detour and learn more about what those do, but for now, think of them as basically waiting for
-  an asynchronous call to return before moving on to the next line.
+  You'll notice a lot of `await` statements. That's because most of these calls
+  are asynchronous. Without `await` the program would keep going without waiting
+  for the result. You may want to take a detour and learn more about what those
+  do, but for now, think of them as basically waiting for an asynchronous call
+  to return before moving on to the next line.
 </Callout>
 
 ### General testing concepts
@@ -449,7 +457,10 @@ failure looks like:
       +Anita
 ```
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="General Testing Concepts">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="General Testing Concepts"
+>
   <Question question="lesson-4/3-general-concepts/Q1" />
   <Question question="lesson-4/3-general-concepts/Q2" />
   <Question question="lesson-4/3-general-concepts/Q3" />
@@ -491,8 +502,9 @@ Our new `describe` section shown below will replace that line that says
 {/* The sentence in the callout below is a bit messy. Could do with an update */}
 
 <Callout emoji="💡">
-  Make sure you keep that last line `})` which is the very end of the block of code that holds
-  **all** of the `describe` blocks you're adding in this whole lesson.
+  Make sure you keep that last line `})` which is the very end of the block of
+  code that holds **all** of the `describe` blocks you're adding in this whole
+  lesson.
 </Callout>
 
 ```javascript
@@ -591,20 +603,22 @@ describe("withdrawal", async () => {
   });
 
   it("should error if balance is zero", async function () {
-    await expect(contract.withdraw()).to.be.revertedWith("Balance should be > 0");
+    await expect(contract.withdraw()).to.be.revertedWith(
+      "Balance should be > 0",
+    );
   });
 
   it("should success if owner", async function () {
     await contract.mint({
       value: hre.ethers.parseEther("0.01"),
     });
-    expect(await hre.ethers.provider.getBalance(contract.getAddress())).to.equal(
-      hre.ethers.parseEther("0.01"),
-    );
+    expect(
+      await hre.ethers.provider.getBalance(contract.getAddress()),
+    ).to.equal(hre.ethers.parseEther("0.01"));
     await contract.withdraw();
-    expect(await hre.ethers.provider.getBalance(contract.getAddress())).to.equal(
-      hre.ethers.parseEther("0"),
-    );
+    expect(
+      await hre.ethers.provider.getBalance(contract.getAddress()),
+    ).to.equal(hre.ethers.parseEther("0"));
   });
 });
 ```
@@ -833,9 +847,9 @@ contract TierNFT is ERC721, Ownable {
 Ok, here are some tests for these helpers!
 
 <Callout emoji="💡">
-  Since an SVG is basically a bunch of strings, you'll notice all these tests are nearly simple
-  single lines -- but they're comparing the results with long strings that eventually make up the
-  final SVG.
+  Since an SVG is basically a bunch of strings, you'll notice all these tests
+  are nearly simple single lines -- but they're comparing the results with long
+  strings that eventually make up the final SVG.
 </Callout>
 
 ```javascript
@@ -924,7 +938,10 @@ while refactoring to make sure we didn't break things along the way, and it's
 helpful at the end to ensure the `tokenURI()` method continues to work without
 fail when code changes.
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Refactoring Code and Testing SVG">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Refactoring Code and Testing SVG"
+>
   <Question question="lesson-4/5-SVG-test/Q1" />
   <Question question="lesson-4/5-SVG-test/Q2" />
   <Question question="lesson-4/5-SVG-test/Q3" />

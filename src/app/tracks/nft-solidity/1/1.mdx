@@ -4,16 +4,16 @@ description: Learn Basics of Smart Contract Development and Remix.
 icons: ["solidity", "remix"]
 ---
 
-import LessonLayout from "../../../components/LessonLayout";
-import Callout from "../../../components/mdx/Callout";
-import QuizStatusChecker from "../../../components/mdx/QuizStatusChecker";
-import Question from "../../../components/mdx/Question";
-import LessonQuestionsModal from "../../../components/mdx/LessonQuestionsModal";
-import LessonInformationalModal from "../../../components/mdx/LessonInformationalModal";
+import LessonLayout from "../../../../components/LessonLayout";
+import Callout from "../../../../components/mdx/Callout";
+import QuizStatusChecker from "../../../../components/mdx/QuizStatusChecker";
+import LessonInformationalModal from "../../../../components/mdx/LessonInformationalModal";
+import Question from "../../../../components/mdx/Question";
+import LessonQuestionsModal from "../../../../components/mdx/LessonQuestionsModal";
 
 <LessonLayout
-   lessonTitle="Introduction to Smart Contract Development with Solidity"
-   lessonImage="/meta-images/build-an-erc20-token.png"
+   lessonTitle="Introduction to Smart Contract Development with Solidity" 
+   lessonImage="/meta-images/build-a-tiered-nft.png"
    lessonDescription="Beginner-friendly. Create your first Solidity smart contract and learn the fundamentals of blockchain development. Checkpoint quizzes included."
    author="7i7o, piablo"
    authorImage="/authors/7i7o.jpg"
@@ -508,7 +508,10 @@ small amount of eth, since we are using the Ethereum blockchain. As we progress
 on our learning journey we will hear a lot more about gas and fees, but that’s
 also for future lessons.
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="Variables and Functions">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="Variables and Functions"
+>
   <Question question="lesson-1/varsFunctions-Q1" />
   <Question question="lesson-1/varsFunctions-Q2" />
   <Question question="lesson-1/varsFunctions-Q3" />
@@ -649,7 +652,10 @@ on these in future lessons, so no worries!
 
 </LessonInformationalModal>
 
-<LessonQuestionsModal buttonText="Checkpoint Questions" title="All about Events">
+<LessonQuestionsModal
+  buttonText="Checkpoint Questions"
+  title="All about Events"
+>
   <Question question="lesson-1/events-Q1" />
   <Question question="lesson-1/events-Q2" />
   <Question question="lesson-1/events-Q3" />
