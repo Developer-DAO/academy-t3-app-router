@@ -222,12 +222,12 @@ const Quiz = (props: QuizProps): JSX.Element => {
 
   return (
     <Dialog>
-      <DialogTrigger className="font-future mx-auto flex h-12 w-32 rounded-3xl bg-[#721F79] p-3 pl-6 text-center text-2xl font-normal text-white">
+      <DialogTrigger className="mx-auto flex h-12 w-32 rounded-3xl bg-[#721F79] p-3 pl-6 text-center font-future text-2xl font-normal text-white">
         QUIZ
       </DialogTrigger>
       <DialogOverlay />
       <DialogContent
-        className={`max-h-[85%] w-full max-w-[360px] overflow-y-auto rounded-lg border-[#848484] bg-[#1C1C1C] lg:mx-2 lg:mx-7 lg:w-full lg:max-w-fit`}
+        className={`max-h-[85%] w-full max-w-[360px] overflow-y-auto rounded-lg border-[#848484] bg-[#1C1C1C] lg:mx-7 lg:w-full lg:max-w-fit`}
       >
         <DialogHeader>
           <DialogTitle>
@@ -236,10 +236,10 @@ const Quiz = (props: QuizProps): JSX.Element => {
             </DialogTrigger>
 
             <div className="flex flex-col text-start">
-              <span className="font-clash-display w-full text-xl font-semibold text-white lg:text-3xl">
+              <span className="w-full font-clash-display text-xl font-semibold text-white lg:text-3xl">
                 {quiz.title}
               </span>
-              <span className="font-poppins w-full text-base font-light text-white">{`Quiz Question ${
+              <span className="w-full font-poppins text-base font-light text-white">{`Quiz Question ${
                 currentQuestionIndex + 1
               }/${quiz.questions.length}`}</span>
             </div>
@@ -249,7 +249,7 @@ const Quiz = (props: QuizProps): JSX.Element => {
         <DialogDescription className="h-[75%] max-h-[80%] bg-[#242424] pb-5">
           <div className="flex flex-col rounded-md bg-[#242424] p-3 lg:p-6">
             <div className="mt-4 h-[45%] max-h-fit w-full overflow-auto scroll-smooth">
-              <span className="font-poppins mb-4 w-full text-lg font-bold leading-5 text-white">
+              <span className="mb-4 w-full font-poppins text-lg font-bold leading-5 text-white">
                 {quiz.questions[currentQuestionIndex]!.question}
               </span>
               {quiz.questions[currentQuestionIndex]!.options.map(
@@ -300,7 +300,7 @@ const Quiz = (props: QuizProps): JSX.Element => {
               </ButtonRaw>
               <ButtonRaw
                 type="button"
-                className="font-future w-32 rounded-3xl bg-[#636363] text-xs font-normal text-white"
+                className="w-32 rounded-3xl bg-[#636363] font-future text-xs font-normal text-white"
                 onClick={submit}
                 disabled={Object.keys(answers).length !== quiz.questions.length}
               >
