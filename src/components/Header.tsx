@@ -46,6 +46,7 @@ const PageHeader: FunctionComponent = () => {
                   width={150}
                   height={40}
                   alt="Academy Logo"
+                  className="h-auto w-36"
                 />
               </Link>
               {/* <ThemeToggleButton hidden={isConnected} /> */}
