@@ -2,9 +2,9 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useState } from "react";
-// import { useAccount } from "wagmi";
+import { useAccount } from "wagmi";
 
-// import { ConnectButton } from "@/components/ConnectButton";
+import { ConnectButton } from "@/components/ConnectButton";
 import QuizCompletedModals from "@/components/mdx/QuizCompletedModals";
 
 import Quiz from "./Quiz";
@@ -13,9 +13,9 @@ import { type CompletedQuizRecord } from "@/types";
 
 export interface QuizStatusCheckerType {
   quiz: string;
-  successMessage: { message: string }[];
-  successTitle: string;
-  actionButton: any;
+  successMessage?: { message: string }[];
+  successTitle?: string;
+  actionButton?: any;
 }
 
 const QuizStatusChecker = ({
@@ -25,7 +25,7 @@ const QuizStatusChecker = ({
   actionButton,
 }: QuizStatusCheckerType) => {
   const [quizCompleted, setQuizCompleted] = useState<boolean>(false);
-  // const { address, isDisconnected } = useAccount();
+  const { address, isDisconnected } = useAccount();
   const [nextLessonURLPath, setNextLessonURLPath] = useState("");
   const [nextLessonTitle, setNextLessonTitle] = useState("");
   const [actualLessonTitle, setActualLessonTitle] = useState("");
@@ -111,16 +111,14 @@ const QuizStatusChecker = ({
     }
   }, [allLessonsData, quiz, quizCompleted]);
 
-  // return isDisconnected || address === undefined ? (
-  return false ? (
+  return isDisconnected === true || address === undefined ? (
     <div className="w-full content-center items-center justify-center text-center">
       <span className="font-future text-3xl font-bold text-[#721F79] underline">
         Connect your wallet and Sign in to start the quiz
       </span>
       <br />
       <br />
-      {/* <ConnectButton /> */}
-      <button>connect wallet ...</button>
+      <ConnectButton />
     </div>
   ) : quizCompleted ? (
     <>

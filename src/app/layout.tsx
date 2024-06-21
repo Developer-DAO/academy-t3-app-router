@@ -1,10 +1,14 @@
 import "@/styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
 
-import { GeistSans } from "geist/font/sans";
+import localFont from "next/font/local";
+import { Zen_Kaku_Gothic_Antique } from "next/font/google";
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Providers from "@/components/Providers";
+import SessionProvider from "@/components/SessionProvider";
+import { getServerSession } from "next-auth";
 
 export const metadata = {
   title: "Create T3 App",
@@ -12,19 +16,58 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+const zenKakuFont = Zen_Kaku_Gothic_Antique({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-zen-kaku",
+});
+
+// Font files can be colocated inside of `app/fonts`
+const andalemoFont = localFont({
+  src: "../fonts/ANDALEMO.ttf",
+  display: "swap",
+  variable: "--font-andale-mono",
+});
+
+const bttfFont = localFont({
+  src: "../fonts/BTTF.ttf",
+  display: "swap",
+  variable: "--font-future",
+});
+
+const deathStarFont = localFont({
+  src: "../fonts/DeathStar.otf",
+  display: "swap",
+  variable: "--font-deathstar",
+});
+
+const clashDisplayFont = localFont({
+  src: "../fonts/ClashDisplay.ttf",
+  display: "swap",
+  variable: "--font-clash-display",
+});
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html
+      lang="en"
+      className={`${andalemoFont.variable} ${bttfFont.variable} ${deathStarFont.variable} ${zenKakuFont.variable} ${clashDisplayFont.variable}`}
+    >
       <body>
-        <Providers>
-          <Header />
-          <main /* className={fontVars} */>{children}</main>
-          <Footer />
-        </Providers>
+        <SessionProvider session={session}>
+          <Providers>
+            <Header />
+            <main /* className={fontVars} */>{children}</main>
+            <Footer />
+          </Providers>
+        </SessionProvider>
       </body>
     </html>
   );

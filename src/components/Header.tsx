@@ -5,11 +5,10 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import type { FunctionComponent } from "react";
 
-// import { useAccount } from "wagmi";
 import { type NavItem, TopBar } from "./TopBar";
 import { SideBar } from "./SideBar";
 import { cn } from "@/lib/utils";
-// import ThemeToggleButton from "@/components/ThemeToggleButton";
+import { ConnectButton } from "@/components/ConnectButton";
 
 const topbarNavMenus: NavItem[] = [
   {
@@ -47,6 +46,7 @@ const PageHeader: FunctionComponent = () => {
                   width={150}
                   height={40}
                   alt="Academy Logo"
+                  className="h-auto w-36"
                 />
               </Link>
               {/* <ThemeToggleButton hidden={isConnected} /> */}
@@ -68,14 +68,14 @@ const PageHeader: FunctionComponent = () => {
       pathname === "/fundamentals" ? (
         <div className="inline-flex gap-2">
           {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
-          <button>connect wallet..</button>
+          <ConnectButton />
         </div>
       ) : (
         <>
           <BackButton className="lg:hidden" />
           <div className="hidden gap-2 lg:inline-flex">
             {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
-            <button>connect wallet..</button>
+            <ConnectButton />
           </div>
         </>
       )}
@@ -94,7 +94,7 @@ const PageHeader: FunctionComponent = () => {
             ]}
           />
         ) : (
-          <button>connect wallet..</button>
+          <ConnectButton />
         )}
       </div>
     </header>
