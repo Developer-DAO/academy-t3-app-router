@@ -11,7 +11,7 @@ type trackTagsRelation = TagsOnTracks & { tag: Tags };
 
 export default function TracksPage() {
   const { data: allTracksData } = api.tracks.getAll.useQuery();
-
+  console.log({ allTracksData });
   return (
     <div className="flex h-full w-full flex-col space-y-10 overflow-hidden bg-black lg:h-screen lg:max-h-screen lg:flex-row">
       <div

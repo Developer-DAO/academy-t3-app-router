@@ -193,12 +193,12 @@ const Quiz = (props: QuizProps): JSX.Element => {
       Object.keys(newAnswers).length > 0 &&
       currentQuestionIndex !== undefined &&
       newAnswers[currentQuestionIndex] !== undefined &&
-      newAnswers[currentQuestionIndex]!.length > 0 &&
-      newAnswers[currentQuestionIndex]!.includes(answerIndex)
+      newAnswers[currentQuestionIndex].length > 0 &&
+      newAnswers[currentQuestionIndex].includes(answerIndex)
     ) {
       newAnswers[currentQuestionIndex.toString()] = newAnswers[
         currentQuestionIndex
-      ]!.filter((a) => a !== answerIndex);
+      ].filter((a) => a !== answerIndex);
     } else {
       newAnswers[currentQuestionIndex.toString()] = [
         ...(answers[currentQuestionIndex] ?? []),

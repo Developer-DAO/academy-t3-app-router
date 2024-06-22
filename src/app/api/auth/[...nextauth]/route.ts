@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import NextAuth from "next-auth";
+import NextAuth, { type DefaultSession } from "next-auth";
 
 import { env } from "@/env";
 import { SiweMessage } from "siwe";
@@ -7,6 +7,18 @@ import { getCsrfToken } from "next-auth/react";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/server/db";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+
+declare module "next-auth" {
+  interface Session extends DefaultSession {
+    user: {
+      id: string;
+      image: string;
+      verificationNumber: number;
+      // ...other properties
+      // role: UserRole;
+    } & DefaultSession["user"];
+  }
+}
 
 // Auth
 const handler = NextAuth({
