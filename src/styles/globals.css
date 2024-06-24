@@ -4,23 +4,31 @@
 @font-face {
   font-family: "BTTF";
   font-style: normal;
-  src: url("../fonts/BTTF.ttf") format("truetype");
+  src: url("../../public/fonts/BTTF.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "andale-mono-regular";
   font-style: normal;
-  src: url("../fonts/ANDALEMO.ttf") format("truetype");
+  src: url("../../public/fonts/ANDALEMO.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Death Star";
   font-style: normal;
-  src: url("../fonts/DeathStar.otf") format("opentype");
+  src: url("../../public/fonts/DeathStar.otf") format("opentype");
   font-display: swap;
   variable: "--font-deathstar";
+}
+
+@font-face {
+  font-family: "Clash Display";
+  font-style: normal;
+  src: url("../../public/fonts/ClashDisplay.ttf") format("opentype");
+  font-display: swap;
+  variable: "--font-clash-display";
 }
 
 @tailwind base;
