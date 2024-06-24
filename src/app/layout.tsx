@@ -25,25 +25,25 @@ const zenKakuFont = Zen_Kaku_Gothic_Antique({
 
 // Font files can be colocated inside of `app/fonts`
 const andalemoFont = localFont({
-  src: "../fonts/ANDALEMO.ttf",
+  src: "../../public/fonts/ANDALEMO.ttf",
   display: "swap",
   variable: "--font-andale-mono",
 });
 
 const bttfFont = localFont({
-  src: "../fonts/BTTF.ttf",
+  src: "../../public/fonts/BTTF.ttf",
   display: "swap",
   variable: "--font-future",
 });
 
 const deathStarFont = localFont({
-  src: "../fonts/DeathStar.otf",
+  src: "../../public/fonts/DeathStar.otf",
   display: "swap",
   variable: "--font-deathstar",
 });
 
 const clashDisplayFont = localFont({
-  src: "../fonts/ClashDisplay.ttf",
+  src: "../../public/fonts/ClashDisplay.ttf",
   display: "swap",
   variable: "--font-clash-display",
 });
