@@ -60,6 +60,7 @@ export const userRouter = createTRPCRouter({
             .send(msg)
             .then(async () => {
               console.log("Email sent successfully");
+
               const userEmailSent = await ctx.db.user.update({
                 where: {
                   id: ctx.session.user.id,
@@ -134,6 +135,7 @@ export const userRouter = createTRPCRouter({
             .send(msg)
             .then(async () => {
               console.log("Email sent successfully");
+
               const userEmailSent = await ctx.db.user.update({
                 where: {
                   id: ctx.session.user.id,

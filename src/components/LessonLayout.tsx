@@ -33,7 +33,7 @@ export default function LessonLayout({
   const { data: lessonData } = api.lessons.getLessonsByLessonPath.useQuery({
     lessonPath: pathname,
   });
-  console.log({ lessonData });
+
   return (
     // <PageSeoLayout
     //   title={lessonTitle}
