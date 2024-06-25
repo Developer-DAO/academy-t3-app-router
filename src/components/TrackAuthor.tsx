@@ -14,8 +14,6 @@ export default function TrackAuthor({
   authorTwitter,
 }: TrackAuthorProps) {
   // mvp: if multiple authors, split by comma and map to multiple links
-  console.log("∆∆∆: ");
-  console.log(authorImage);
   const handles = authorTwitter.split(", ");
   const twitterLinks = handles.map((handle, idx) => (
     <a

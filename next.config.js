@@ -4,16 +4,16 @@
  */
 await import("./src/env.js");
 import nextMDX from "@next/mdx";
-import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
 // import withPlugins from "next-compose-plugins";
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkFrontmatter],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
-    providerImportSource: "@mdx-js/react",
+    // providerImportSource: "@mdx-js/react",
   },
 });
 
@@ -28,7 +28,8 @@ const config = {
     ],
   },
   reactStrictMode: true,
-  pageExtensions: ["md", "mdx", "ts", "tsx", "js", "jsx"],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+
   webpack: (config) => {
     config.resolve.fallback = { fs: false, net: false, tls: false };
     config.externals.push("pino-pretty", "lokijs", "encoding");

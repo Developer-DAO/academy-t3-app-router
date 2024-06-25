@@ -16,7 +16,7 @@ const Callout = (props: CalloutProps): JSX.Element => {
   // const styles = useStyleConfig("Callout", { size, variant });
   return (
     <div
-      /*__css={styles} */ className="rounded-2xl bg-[#1d1e20] lg:m-4 lg:p-3 lg:px-4"
+      /*__css={styles} */ className="rounded-2xl bg-[#2b2d30] lg:m-4 lg:p-3 lg:px-4"
       {...rest}
     >
       <div className="flex flex-row gap-4 ">
