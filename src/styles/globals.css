@@ -4,14 +4,14 @@
 @font-face {
   font-family: "BTTF";
   font-style: normal;
-  src: url("/fonts/BTTF.ttf") format("opentype");
+  src: url("/fonts/BTTF.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "andale-mono-regular";
   font-style: normal;
-  src: url("/fonts/ANDALEMO.ttf") format("opentype");
+  src: url("/fonts/ANDALEMO.ttf") format("truetype");
   font-display: swap;
 }
 
