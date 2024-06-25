@@ -1,4 +1,5 @@
 // import NextImage from "next/image"; // after migration
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -6,7 +7,6 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Separator } from "@radix-ui/react-separator";
-import { Badge } from "lucide-react";
 import Image from "next/image";
 import type { FC } from "react";
 

@@ -60,14 +60,12 @@ const QuizCompletedModals = ({
     setShowDialog(false);
   };
 
-  console.log(actionButton);
-
   return (
     <>
       <div className="w-full text-center">
         <ButtonRaw
-          className="font-future mx-auto flex h-fit w-fit rounded-3xl
-          bg-[#721F79] text-2xl font-normal text-white"
+          className="mx-auto flex h-fit w-fit rounded-3xl bg-[#721F79]
+          font-future text-2xl font-normal text-white"
           onClick={() => {
             setShowDialog(true);
           }}
@@ -88,7 +86,7 @@ const QuizCompletedModals = ({
               </DialogTrigger>
               <div className="w-full text-center">
                 {/*   {!showKeepGoingModal ? ( */}
-                <span className="font-clash-display w-full text-center text-2xl font-bold leading-8 text-white">
+                <span className="w-full text-center font-clash-display text-2xl font-bold leading-8 text-white">
                   {actualLessonTitle}
                 </span>
               </div>
@@ -100,7 +98,7 @@ const QuizCompletedModals = ({
               {/*  {!showKeepGoingModal ? ( */}
               <div className="max-h-64 w-fit lg:mt-11 lg:h-96 lg:w-full">
                 <div
-                  className={`font-clash-display w-full rounded-3xl p-3 text-center font-bold text-[#F9F9F9]`}
+                  className={`w-full rounded-3xl p-3 text-center font-clash-display font-bold text-[#F9F9F9]`}
                 >
                   {/* <h1 className="font-clash-display mb-11 text-3xl lg:text-[26px]">
                     {successTitle}
@@ -123,13 +121,13 @@ const QuizCompletedModals = ({
                       )}
                       target="_blank"
                     >
-                      <ButtonRaw className="font-future h-8 w-24 bg-[#721F79] lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base">
+                      <ButtonRaw className="h-8 w-24 bg-[#721F79] font-future lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base">
                         Share on Twitter
                       </ButtonRaw>
                     </a>
                     {actionButton ? (
                       <a href={actionButton.href} target="_blank">
-                        <ButtonRaw className="font-future h-8 w-24 bg-[#721F79] lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base">
+                        <ButtonRaw className="h-8 w-24 bg-[#721F79] font-future lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base">
                           {actionButton.text}
                         </ButtonRaw>
                       </a>
@@ -138,7 +136,7 @@ const QuizCompletedModals = ({
                       <NextLink href={nextLessonURLPath}>
                         <ButtonRaw
                           // variant="outline"
-                          className="font-future h-14 w-36 hover:bg-[#721F79] lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base"
+                          className="h-14 w-36 font-future hover:bg-[#721F79] lg:h-14 lg:w-80 lg:min-w-[21rem] lg:text-base"
                           onClick={handleLessonDoneClick}
                         >
                           Next Lesson
