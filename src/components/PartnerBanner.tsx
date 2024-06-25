@@ -40,7 +40,7 @@ export const PartnerBanner: FC<PartnerBannerProps> = ({ href, imgSrc }) => {
             width={100}
             height={100}
             alt="partner"
-            className="mb-4 h-[100px] w-[94px] rounded-full lg:mr-[50px]"
+            className="mb-4 h-auto max-h-28 w-24 rounded-full lg:mr-[50px]"
           />
           <div className="separator mb-4" />
           <div className="flex flex-wrap items-center justify-center gap-6">
