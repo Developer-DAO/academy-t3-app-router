@@ -29,7 +29,7 @@ const SideBar: FC<SideBarProps> = ({ menus }) => {
   return (
     <Sheet>
       <SheetTrigger asChild className="text-[#44AF96]">
-        <Icons.hamburger_menu className="h-8 w-8" />
+        <Icons.hamburger_menu className="h-8 w-auto max-w-8" />
       </SheetTrigger>
       <SheetContent side="left" className="w-full bg-black pt-12 md:max-w-sm">
         <div className="gap-4 pt-12">

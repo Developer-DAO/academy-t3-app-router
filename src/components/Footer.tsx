@@ -179,6 +179,7 @@ export const Footer = () => {
           alt={"powered by vercel"}
           width={200}
           height={80}
+          className="h-auto w-48 object-cover"
         />
       </div>
     </footer>
