@@ -1,36 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap");
 @import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,700,500,600&display=swap");
 
-@font-face {
-  font-family: "BTTF";
-  font-style: normal;
-  src: url("/fonts/BTTF.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "andale-mono-regular";
-  font-style: normal;
-  src: url("/fonts/ANDALEMO.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Death Star";
-  font-style: normal;
-  src: url("/fonts/DeathStar.otf") format("opentype");
-  font-display: swap;
-  variable: "--font-deathstar";
-}
-
-@font-face {
-  font-family: "Clash Display";
-  font-style: normal;
-  src: url("/fonts/ClashDisplay.ttf") format("opentype");
-  font-display: swap;
-  variable: "--font-clash-display";
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
