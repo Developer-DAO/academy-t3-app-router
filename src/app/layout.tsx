@@ -56,15 +56,16 @@ export default async function RootLayout({
   const session = await getServerSession();
 
   return (
-    <html
-      lang="en"
-      className={`${andalemoFont.variable} ${bttfFont.variable} ${deathStarFont.variable} ${zenKakuFont.variable} ${clashDisplayFont.variable}`}
-    >
+    <html lang="en">
       <body>
         <SessionProvider session={session}>
           <Providers>
             <Header />
-            <main /* className={fontVars} */>{children}</main>
+            <main
+              className={`${andalemoFont.variable} ${bttfFont.variable} ${deathStarFont.variable} ${zenKakuFont.variable} ${clashDisplayFont.variable}`}
+            >
+              {children}
+            </main>
             <Footer />
           </Providers>
         </SessionProvider>

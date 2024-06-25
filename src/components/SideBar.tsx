@@ -4,11 +4,6 @@ import type { FC } from "react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Icons } from "./Icons";
 
-// const deathstar = localFont({
-//   src: "../fonts/DeathStar.otf",
-//   variable: "--font-deathstar",
-// });
-
 interface SubNavItem {
   name: string;
   href: string;
@@ -34,7 +29,7 @@ const SideBar: FC<SideBarProps> = ({ menus }) => {
       <SheetContent side="left" className="w-full bg-black pt-12 md:max-w-sm">
         <div className="gap-4 pt-12">
           {menus.map((menu, key) => (
-            <div key={key} className={`mobile-nav-item `}>
+            <div key={key} className={`mobile-nav-item font-deathstar`}>
               <SheetClose asChild>
                 <NextLink href={menu.href}>{menu.name}</NextLink>
               </SheetClose>
