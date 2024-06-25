@@ -15,7 +15,7 @@ export interface QuizStatusCheckerType {
   quiz: string;
   successMessage?: { message: string }[];
   successTitle?: string;
-  actionButton?: any;
+  actionButton?: { href: string; text: string } | null;
 }
 
 const QuizStatusChecker = ({

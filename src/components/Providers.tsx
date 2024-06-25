@@ -52,7 +52,12 @@ export default function Providers({ children }: Props) {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitSiweNextAuthProvider>
-          <RainbowKitProvider>
+          <RainbowKitProvider
+            appInfo={{
+              appName: "Developer DAO Academy",
+              learnMoreUrl: "https://academy.developerdao.com",
+            }}
+          >
             <TRPCReactProvider>{children}</TRPCReactProvider>
           </RainbowKitProvider>
         </RainbowKitSiweNextAuthProvider>
