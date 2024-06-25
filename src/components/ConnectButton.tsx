@@ -1,11 +1,8 @@
 "use client";
 
-import localFont from "next/font/local";
 import { ConnectButton as RainbowkitConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
-const bttf = localFont({ src: "../../public/fonts/BTTF.ttf" });
 
 export const ConnectButton = () => {
   return (
@@ -28,7 +25,7 @@ export const ConnectButton = () => {
 
         if (!ready) {
           return (
-            <Button className={`connect-button ${bttf.className}`} disabled>
+            <Button className={`connect-button font-future`} disabled>
               loading
             </Button>
           );
@@ -39,14 +36,14 @@ export const ConnectButton = () => {
             {connected !== true ? (
               <Button
                 onClick={openConnectModal}
-                className={`connect-button ${bttf.className} hover:bg-[var(--button-secondary-dark)]`}
+                className={`connect-button font-future hover:bg-[var(--button-secondary-dark)]`}
               >
                 Connect
               </Button>
             ) : chain?.unsupported === true ? (
               <Button
                 onClick={openChainModal}
-                className={`connect-button ${bttf.className} hover:bg-[var(--button-secondary-dark)]`}
+                className={`connect-button font-future hover:bg-[var(--button-secondary-dark)]`}
               >
                 Switch Network
               </Button>
