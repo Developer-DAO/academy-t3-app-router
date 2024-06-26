@@ -6,7 +6,6 @@ import { SiweMessage } from "siwe";
 import { getCsrfToken } from "next-auth/react";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/server/db";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
@@ -35,7 +34,6 @@ const handler = NextAuth({
   },
   session: { strategy: "jwt" },
   secret: env.NEXTAUTH_SECRET!, // in case you want pass this along for other functionality
-  adapter: PrismaAdapter(db),
   providers: [
     CredentialsProvider({
       // ! Don't add this
