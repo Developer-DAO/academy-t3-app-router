@@ -85,7 +85,7 @@ const NftSolidityTrackPage = () => {
 //             url:
 //               process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
 //                 ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/build-a-tiered-nft.png`
-//                 : "/meta-images/build-a-tiered-nft.pngg",
+//                 : "/meta-images/build-a-tiered-nft.png",
 //             alt: "Web3 Learning Tracks",
 //           },
 //         ],
