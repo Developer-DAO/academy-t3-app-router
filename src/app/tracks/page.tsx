@@ -7,6 +7,7 @@ import { type Tags, type TagsOnTracks } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
 
+ 
 type trackTagsRelation = TagsOnTracks & { tag: Tags };
 
 export default function TracksPage() {

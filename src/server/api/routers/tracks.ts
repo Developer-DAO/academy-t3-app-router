@@ -104,4 +104,18 @@ export const tracksRouter = createTRPCRouter({
         },
       });
     }),
+
+  getTrackByPathname: publicProcedure
+    .input(z.object({ trackPath: z.string() }))
+    .query(async ({ input, ctx }) => {
+      const track = await ctx.db.tracks.findFirst({
+        where: {
+          trackPath: {
+            equals: input.trackPath,
+          },
+        },
+      });
+
+      return track;
+    }),
 });
