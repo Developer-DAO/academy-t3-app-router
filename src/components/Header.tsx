@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import type { FunctionComponent } from "react";
+import { type FunctionComponent } from "react";
 
 import { type NavItem, TopBar } from "./TopBar";
 import { SideBar } from "./SideBar";
@@ -29,11 +29,12 @@ const topbarNavMenus: NavItem[] = [
 ];
 
 const PageHeader: FunctionComponent = () => {
-  // const { isConnected } = useAccount();
   const pathname = usePathname();
 
   return (
-    <header className="app-container absolute left-0 right-0 top-0 z-50 flex items-start justify-between px-8 pt-8 md:flex-row">
+    <header
+      className={`app-container absolute left-0 right-0 top-0 z-50 flex items-start justify-between px-8 pt-8 md:flex-row ${pathname.startsWith("/dashboard") ? "hidden" : ""}`}
+    >
       <div className="hidden lg:flex ">
         {pathname === "/" ||
         pathname === "/tracks" ||

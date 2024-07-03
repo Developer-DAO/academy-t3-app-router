@@ -34,6 +34,7 @@ const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
   NEXT_PUBLIC_WALLET_CONNECT_ID: z.string().min(1),
   NEXT_PUBLIC_ENABLE_TESTNETS: z.string(),
+  NEXT_PUBLIC_ADMIN_WALLETS: z.string(),
 });
 
 /**
@@ -53,6 +54,7 @@ const processEnv = {
   ENVIRONMENT: process.env.ENVIRONMENT,
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   NEXT_PUBLIC_ENABLE_TESTNETS: process.env.NEXT_PUBLIC_ENABLE_TESTNETS,
+  NEXT_PUBLIC_ADMIN_WALLETS: process.env.NEXT_PUBLIC_ADMIN_WALLETS,
 };
 
 // Don't touch the part below

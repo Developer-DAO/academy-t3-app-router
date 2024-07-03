@@ -79,7 +79,7 @@ const TopBarItem: FC<NavItem> = ({ name, icon, href, subnavs }) => {
 
 const TopBar: FC<TopBarProps> = ({ menus }) => {
   return (
-    <NavigationMenu className="top-nav gradient-blur">
+    <NavigationMenu className="top-nav gradient-blur  ">
       <NavigationMenuList className="gap-x-4">
         {renderMenus({ menus })}
       </NavigationMenuList>
