@@ -6,6 +6,16 @@ import { useState } from "react";
 import { type Lessons } from "@prisma/client";
 import { useToast } from "@/components/ui/use-toast";
 import { api } from "@/trpc/react";
+import { AlertModal } from "@/app/(admin)/dashboard/_components/AlertModal";
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/Icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface CellActionProps {
   data: Lessons;
@@ -39,6 +49,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
     try {
       setLoading(true);
       deleteLesson.mutate({ lessonId: data.id });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast({
         variant: "destructive",
