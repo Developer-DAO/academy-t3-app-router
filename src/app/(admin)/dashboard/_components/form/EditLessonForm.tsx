@@ -227,7 +227,7 @@ function EditLessonForm({ lessonId, lessonToEditData }: EditFormProps) {
             <Button type="submit" disabled={loading} className="outline">
               {!session
                 ? "Sign in error"
-                : updateLesson.isLoading
+                : updateLesson.isIdle
                   ? "Loading..."
                   : "Save changes"}
             </Button>

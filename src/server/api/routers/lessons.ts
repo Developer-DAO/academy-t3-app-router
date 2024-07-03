@@ -218,7 +218,7 @@ export const lessonsRouter = createTRPCRouter({
         },
       });
     }),
-  udpate: protectedProcedure
+  update: protectedProcedure
     .input(
       z.object({
         lessonId: z.string().min(3).max(30),
