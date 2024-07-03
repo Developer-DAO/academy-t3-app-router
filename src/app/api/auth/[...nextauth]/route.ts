@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import NextAuth, { type DefaultSession } from "next-auth";
+import type { Session } from "next-auth";
 
 import { env } from "@/env";
 import { SiweMessage } from "siwe";
@@ -15,6 +16,7 @@ declare module "next-auth" {
       verificationNumber: number;
       // ...other properties
       // role: UserRole;
+      address: string;
     } & DefaultSession["user"];
   }
 }
@@ -29,7 +31,7 @@ const handler = NextAuth({
           ...session.user,
           id: token.sub,
         },
-      };
+      } as Session & { user: { id: string } };
     },
   },
   session: { strategy: "jwt" },

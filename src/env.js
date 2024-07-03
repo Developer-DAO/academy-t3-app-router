@@ -24,6 +24,7 @@ const server = z.object({
   // DISCORD_CLIENT_SECRET: z.string(),
   ENVIRONMENT: z.enum(["local", "staging", "production"]),
   SENDGRID_API_KEY: z.string().min(1),
+  ADMIN_WALLETS: z.string().min(1),
 });
 
 /**
@@ -34,6 +35,7 @@ const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
   NEXT_PUBLIC_WALLET_CONNECT_ID: z.string().min(1),
   NEXT_PUBLIC_ENABLE_TESTNETS: z.string(),
+  NEXT_PUBLIC_ADMIN_WALLETS: z.string(),
 });
 
 /**
@@ -53,6 +55,8 @@ const processEnv = {
   ENVIRONMENT: process.env.ENVIRONMENT,
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   NEXT_PUBLIC_ENABLE_TESTNETS: process.env.NEXT_PUBLIC_ENABLE_TESTNETS,
+  ADMIN_WALLETS: process.env.ADMIN_WALLETS,
+  NEXT_PUBLIC_ADMIN_WALLETS: process.env.NEXT_PUBLIC_ADMIN_WALLETS,
 };
 
 // Don't touch the part below

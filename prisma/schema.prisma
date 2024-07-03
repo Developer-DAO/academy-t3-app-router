@@ -98,13 +98,13 @@ model Tracks {
   id String @id @default(cuid())
   trackName String
   trackTitle String
-  authors String[]
+  authors String[] @default([])
   imgPath String
   trackDescription String
   tags TagsOnTracks[]
   trackPath String
   lessons Lessons[]
-  order Int?
+  order Int? @default(0)
   productionVisible Boolean @default(true)
   stagingVisible Boolean @default(true)
   visible Boolean @default(true)
