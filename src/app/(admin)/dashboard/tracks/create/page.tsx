@@ -1,3 +1,5 @@
+"use client";
+
 import CreateTrackForm from "@/app/(admin)/dashboard/_components/form/CreateTrackForm";
 import { withAuth } from "@/components/withAuth";
 

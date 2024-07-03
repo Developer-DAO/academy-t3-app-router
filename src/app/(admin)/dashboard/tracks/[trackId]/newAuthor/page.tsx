@@ -1,6 +1,7 @@
+"use client";
+
 import AddAuthorToTrackForm from "@/app/(admin)/dashboard/_components/form/AddAuthorToTrackForm";
 import { withAuth } from "@/components/withAuth";
-import React from "react";
 
 function NewContributorPage() {
   return (
