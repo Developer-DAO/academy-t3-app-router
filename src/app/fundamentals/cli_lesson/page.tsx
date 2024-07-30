@@ -3,6 +3,6 @@
 import * as React from "react";
 import Content from "./cli_lesson.mdx";
 
-export default function IntroToEthereumPartOnePage() {
+export default function FundamentalCliLessonPage() {
   return <Content />;
 }

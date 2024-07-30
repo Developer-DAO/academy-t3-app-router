@@ -15,7 +15,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read pathname
   const pathname = headers().get("next-url") ?? "";
-
   // fetch data
   const lesson = await api.lessons.getLessonsByLessonPath({
     lessonPath: pathname,
