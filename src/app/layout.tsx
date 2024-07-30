@@ -3,6 +3,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import localFont from "next/font/local";
 import { Zen_Kaku_Gothic_Antique } from "next/font/google";
+import { type Metadata } from "next";
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,7 +11,7 @@ import Providers from "@/components/Providers";
 import SessionProvider from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
   title: {
     template: "%s | Developer DAO Academy",
