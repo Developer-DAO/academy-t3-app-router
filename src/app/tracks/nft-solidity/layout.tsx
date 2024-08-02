@@ -12,12 +12,14 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read pathname
-  const pathname = headers().get("next-url") ?? "";
+  const headerList = headers();
+  const pathname = headerList.get("x-current-path");
 
   // fetch data
   const trackData = await api.tracks.getTrackByPathname({
-    trackPath: pathname,
+    trackPath: pathname!,
   });
+
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
 
