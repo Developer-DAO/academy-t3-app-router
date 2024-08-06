@@ -14,18 +14,20 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   // read pathname
-  const pathname = headers().get("next-url") ?? "";
+  const headerList = headers();
+  const pathname = headerList.get("x-current-path");
 
   // fetch data
-  const lesson = await api.lessons.getLessonsByLessonPath({
-    lessonPath: pathname,
+  const lessonData = await api.lessons.getLessonsByLessonPath({
+    lessonPath: pathname!,
   });
+
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images ?? [];
 
   return {
-    title: lesson?.lessonTitle,
-    description: lesson?.lessonDescription,
+    title: lessonData?.lessonTitle,
+    description: lessonData?.lessonDescription,
     openGraph: {
       images: [
         {
@@ -33,7 +35,7 @@ export async function generateMetadata(
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
               ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/default-meta-image.png`
               : "/meta-images/default-meta-image.png",
-          alt: lesson?.lessonTitle,
+          alt: lessonData?.lessonTitle,
         },
       ],
     },

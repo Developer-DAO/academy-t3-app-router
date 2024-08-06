@@ -10,8 +10,6 @@ import {
   TooltipContent,
 } from "./ui/tooltip";
 import { usePathname } from "next/navigation";
-import { env } from "@/env";
-import { useAccount } from "wagmi";
 
 interface SocialLinks {
   alt?: string;
@@ -65,14 +63,8 @@ const socials: readonly SocialLinks[] = [
   },
 ];
 
-const adminWallets = env.NEXT_PUBLIC_ADMIN_WALLETS.split(", ");
-
 export const Footer = () => {
   const pathname = usePathname();
-
-  const { address: connectedAddress } = useAccount();
-
-  const isAdmin = adminWallets.includes(connectedAddress!);
 
   return (
     <footer
@@ -106,14 +98,6 @@ export const Footer = () => {
           })}
         </nav>
         <nav aria-label="quick links" className="h-20 divide-x">
-          {isAdmin ? (
-            <Link
-              className="group inline-flex h-full items-center pl-4 md:pl-6"
-              href={"/dashboard"}
-            >
-              Admin
-            </Link>
-          ) : null}
           {links.map((link) => (
             <TooltipProvider delayDuration={30} key={link.href}>
               <Tooltip>

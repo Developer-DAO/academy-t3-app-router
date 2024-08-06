@@ -10,8 +10,8 @@ export const metadata: Metadata = {
       {
         url:
           process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/academy-web3-fundamentals.png`
-            : "/meta-images/academy-web3-fundamentals.png",
+            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/academy-web3-fundamentals.png`
+            : "/academy-web3-fundamentals.png",
         alt: "Web3 Coding Fundamentals",
       },
     ],
