@@ -33,8 +33,8 @@ export async function generateMetadata(
         {
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/arweave-101/building-apps-on-arweave.png`
-              : "/meta-images/arweave-101/building-apps-on-arweave.png",
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/arweave-201/gateway-hosting.png`
+              : "/meta-images/arweave-201/gateway-hosting.png",
           alt: trackData?.trackTitle,
         },
       ],
