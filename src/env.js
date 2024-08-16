@@ -20,8 +20,6 @@ const server = z.object({
     process.env.VERCEL ? z.string().min(1) : z.string().url(),
   ),
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
-  // DISCORD_CLIENT_ID: z.string(),
-  // DISCORD_CLIENT_SECRET: z.string(),
   ENVIRONMENT: z.enum(["local", "staging", "production"]),
   SENDGRID_API_KEY: z.string().min(1),
 });
@@ -34,7 +32,6 @@ const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
   NEXT_PUBLIC_WALLET_CONNECT_ID: z.string().min(1),
   NEXT_PUBLIC_ENABLE_TESTNETS: z.string(),
-  NEXT_PUBLIC_ADMIN_WALLETS: z.string(),
 });
 
 /**
@@ -49,12 +46,10 @@ const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-  // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   NEXT_PUBLIC_WALLET_CONNECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_ID,
   ENVIRONMENT: process.env.ENVIRONMENT,
   SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   NEXT_PUBLIC_ENABLE_TESTNETS: process.env.NEXT_PUBLIC_ENABLE_TESTNETS,
-  NEXT_PUBLIC_ADMIN_WALLETS: process.env.NEXT_PUBLIC_ADMIN_WALLETS,
 };
 
 // Don't touch the part below
