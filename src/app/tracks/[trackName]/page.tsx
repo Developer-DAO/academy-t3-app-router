@@ -23,7 +23,8 @@ interface Track {
 
 export async function generateStaticParams() {
   const url = process.env.NEXT_PUBLIC_VERCEL_ENV
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    ? // ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      ``
     : "http://localhost:3000";
   console.log("URL FINAL: ", url);
 
