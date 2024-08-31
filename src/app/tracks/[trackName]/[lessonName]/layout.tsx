@@ -22,11 +22,8 @@ export async function generateMetadata(
     lessonPath: pathname!,
   });
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images ?? [];
-
   return {
-    title: lessonData?.lessonTitle,
+    title: `${lessonData?.lessonTitle} | Developer DAO Academy`,
     description: lessonData?.lessonDescription,
     openGraph: {
       images: [
@@ -42,7 +39,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function TrackPageLayout({
+export default async function DynamicLessonPageLayout({
   children,
 }: {
   children: React.ReactNode;

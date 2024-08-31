@@ -8,7 +8,7 @@ import { headers } from "next/headers";
 import { getMetaImageFromImgPath } from "@/utils/meta-images";
 
 type Props = {
-  params: { id: string };
+  params: { trackName: string };
 };
 
 export async function generateMetadata(
@@ -43,7 +43,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function TrackPageLayout({
+export default async function DynamicTrackPageLayout({
   children,
 }: {
   children: React.ReactNode;
