@@ -3,9 +3,15 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const tracks = await db.tracks.findMany();
+    const lessons = await db.lessons.findMany({
+      where: {
+        lessonPath: {
+          contains: "fundamentals",
+        },
+      },
+    });
 
-    return NextResponse.json(tracks);
+    return NextResponse.json(lessons);
   } catch (error) {
     return NextResponse.json(
       { error: "Internal Server Error" },

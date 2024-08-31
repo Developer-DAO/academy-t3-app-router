@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-export async function GetLessonByTrackAndLessonName(
+export async function GetLessonContentByTrackAndLessonName(
   trackName: string,
   lessonName: string,
 ) {
