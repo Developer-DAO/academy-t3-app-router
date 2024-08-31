@@ -13,6 +13,7 @@ export async function generateStaticParams() {
     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : "http://localhost:3000";
 
+  console.log("URL FINAL LESSONS 2: ", url);
   const lessons = await fetch(`${url}/api/lessons`).then((res) => res.json());
 
   return lessons.map((lesson: Lessons) => ({
