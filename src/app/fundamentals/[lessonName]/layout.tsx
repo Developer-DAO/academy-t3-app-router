@@ -22,9 +22,6 @@ export async function generateMetadata(
     lessonPath: pathname!,
   });
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images ?? [];
-
   return {
     title: lessonData?.lessonTitle,
     description: lessonData?.lessonDescription,
