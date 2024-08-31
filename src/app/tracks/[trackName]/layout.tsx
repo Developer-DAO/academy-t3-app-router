@@ -35,7 +35,7 @@ export async function generateMetadata(
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
               ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/${metaImagePath}`
-              : "/meta-images/${metaImagePath}",
+              : `/meta-images/${metaImagePath}`,
           alt: trackData?.trackTitle,
         },
       ],
