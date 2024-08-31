@@ -1,12 +1,19 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { GetLessonByTrackAndLessonName } from "@/lib/lessons";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
-import * as React from "react";
-import Content from "./1.mdx"; // TODO: DEV_NOTE: We have to load the mdx content dynamically here
+import Components from "@/components/mdx/Components";
 
 type Props = {
-  params: { lessonName: string };
+  params: { trackName: string; lessonName: string };
 };
 
-export default function DynamicLessonPage() {
-  return <Content />;
+export default async function DynamicLessonPage({ params }: Props) {
+  const content = await GetLessonByTrackAndLessonName(
+    params.trackName,
+    params.lessonName,
+  );
+
+  return <MDXRemote source={content} components={Components} />;
 }
