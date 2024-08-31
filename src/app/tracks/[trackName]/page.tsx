@@ -39,7 +39,6 @@ const DynamicTrackPage = async () => {
     trackPath: pathname!,
   });
 
-  console.log("track path -page- ", { pathname }, { ttags: trackData?.tags });
   const allLessonsData = await api.lessons.getLessonsByTrackPath({
     trackPath: pathname!,
   });

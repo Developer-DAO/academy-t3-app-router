@@ -18,7 +18,6 @@ export async function generateMetadata(
   // read pathname
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
-  console.log("track path -layout- ", { pathname });
   // fetch data
   const trackData = await api.tracks.getTrackByPathname({
     trackPath: pathname!,
