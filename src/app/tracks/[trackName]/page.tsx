@@ -6,20 +6,7 @@ import TracksLayout from "@/components/TracksLayout";
 import { TrackCard } from "@/components/TrackCard";
 import { api } from "@/trpc/server";
 import { headers } from "next/headers";
-
-interface Track {
-  id: string;
-  trackName: string;
-  trackTitle: string;
-  authors: string[];
-  imgPath: string;
-  trackDescription: string;
-  trackPath: string;
-  order: number | null;
-  productionVisible: boolean;
-  stagingVisible: boolean;
-  visible: boolean;
-}
+import { type Tracks } from "@prisma/client";
 
 export async function generateStaticParams() {
   const url = process.env.NEXT_PUBLIC_VERCEL_ENV
@@ -27,9 +14,9 @@ export async function generateStaticParams() {
     : "http://localhost:3000";
   console.log("URL FINAL TRACKS: ", url);
 
-  const tracks = await fetch(`${url}/api/tracks`).then((res) => res.json()); // TODO: DEV_NOTE: We have to create the "URL" environment variable which changes from local/development/production environment. LOCAL is localhost, DEVELOPMENT is the vercel dynamic url and PRODUCTION is the academy domain
+  const tracks = await fetch(`/api/tracks`).then((res) => res.json()); // TODO: DEV_NOTE: We have to create the "URL" environment variable which changes from local/development/production environment. LOCAL is localhost, DEVELOPMENT is the vercel dynamic url and PRODUCTION is the academy domain
 
-  return tracks.map((track: Track) => ({
+  return tracks.map((track: Tracks) => ({
     trackName: track.trackPath.replace("/tracks/", ""),
   }));
 }
