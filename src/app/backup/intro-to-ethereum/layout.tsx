@@ -24,7 +24,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   return {
-    title: trackData?.trackTitle,
+    title: `${trackData?.trackTitle} | Developer DAO Academy`,
     description: trackData?.trackDescription,
     openGraph: {
       images: [

@@ -1,5 +1,3 @@
-"use server";
-
 import React from "react";
 import { api } from "@/trpc/server";
 import { type Metadata, type ResolvingMetadata } from "next";
@@ -26,7 +24,7 @@ export async function generateMetadata(
   const previousImages = (await parent).openGraph?.images ?? [];
 
   return {
-    title: lessonData?.lessonTitle,
+    title: `${lessonData?.lessonTitle} | Developer DAO Academy`,
     description: lessonData?.lessonDescription,
     openGraph: {
       images: [

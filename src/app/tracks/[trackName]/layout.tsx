@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 "use server";
 
 import React from "react";
 import { api } from "@/trpc/server";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { headers } from "next/headers";
+import { getMetaImageFromImgPath } from "@/utils/meta-images";
 
 type Props = {
   params: { id: string };
@@ -16,26 +18,25 @@ export async function generateMetadata(
   // read pathname
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
-
+  console.log("track path -layout- ", { pathname });
   // fetch data
-  const lessonData = await api.lessons.getLessonsByLessonPath({
-    lessonPath: pathname!,
+  const trackData = await api.tracks.getTrackByPathname({
+    trackPath: pathname!,
   });
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images ?? [];
+  const metaImagePath = getMetaImageFromImgPath(trackData?.imgPath!);
 
   return {
-    title: lessonData?.lessonTitle,
-    description: lessonData?.lessonDescription,
+    title: `${trackData?.trackTitle} | Developer DAO Academy`,
+    description: trackData?.trackDescription,
     openGraph: {
       images: [
         {
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/default-meta-image.png`
-              : "/meta-images/default-meta-image.png",
-          alt: lessonData?.lessonTitle,
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/${metaImagePath}`
+              : "/meta-images/${metaImagePath}",
+          alt: trackData?.trackTitle,
         },
       ],
     },

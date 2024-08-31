@@ -121,6 +121,17 @@ export const tracksRouter = createTRPCRouter({
             equals: input.trackPath,
           },
         },
+        include: {
+          tags: {
+            include: {
+              tag: {
+                include: {
+                  tracks: false,
+                },
+              },
+            },
+          },
+        },
       });
 
       return track;
