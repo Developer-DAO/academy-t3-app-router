@@ -1,16 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { GetLessonContentByTrackAndLessonName } from "@/lib/lessons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Components from "@/components/mdx/Components";
 import { type Lessons } from "@prisma/client";
-// import { getBaseUrl } from "@/lib/url";
 import { db } from "@/server/db";
 
 type Props = {
   params: { lessonName: string };
 };
-
-export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const lessons = await db.lessons.findMany({

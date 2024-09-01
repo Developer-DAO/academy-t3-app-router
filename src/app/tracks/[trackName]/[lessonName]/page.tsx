@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetLessonContentByTrackAndLessonName } from "@/lib/lessons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
@@ -12,19 +9,20 @@ type Props = {
   params: { trackName: string; lessonName: string };
 };
 
-// export async function generateStaticParams() {
-//   const lessons = await db.lessons.findMany({
-//     where: {
-//       lessonPath: {
-//         contains: "fundamentals",
-//       },
-//     },
-//   });
+export async function generateStaticParams({ params }: Props) {
+  const lessons = await db.lessons.findMany({
+    where: {
+      lessonPath: {
+        contains: params.trackName,
+      },
+    },
+  });
 
-//   return lessons.map((lesson: Lessons) => ({
-//     lessonName: lesson.lessonPath.replace("/fundamentals/", ""),
-//   }));
-// }
+  return lessons.map((lesson: Lessons) => ({
+    trackName: params.trackName,
+    lessonName: lesson.lessonPath.replace(`/tracks/${params.trackName}/`, ""),
+  }));
+}
 
 export default async function DynamicLessonPage({ params }: Props) {
   const content = await GetLessonContentByTrackAndLessonName(

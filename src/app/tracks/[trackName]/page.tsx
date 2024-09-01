@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import Link from "next/link";
 
 import Spinner from "@/components/Spinner";
@@ -11,8 +10,6 @@ import { db } from "@/server/db";
 
 export async function generateStaticParams() {
   const tracks = await db.tracks.findMany();
-
-  console.log("TRACKSDATA ", { tracks });
 
   return tracks.map((track: Tracks) => ({
     trackName: track.trackPath.replace("/tracks/", ""),
