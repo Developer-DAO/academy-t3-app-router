@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   console.log("URL FINAL TRACKS: ", url);
 
   const tracks = await fetch(`${url}/api/tracks`).then((res) => res.json()); // TODO: DEV_NOTE: We have to create the "URL" environment variable which changes from local/development/production environment. LOCAL is localhost, DEVELOPMENT is the vercel dynamic url and PRODUCTION is the academy domain
-
+  console.log("tracksss ", { tracks });
   return tracks.map((track: Tracks) => ({
     trackName: track.trackPath.replace("/tracks/", ""),
   }));
