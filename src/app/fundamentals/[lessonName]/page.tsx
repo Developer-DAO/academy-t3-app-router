@@ -8,6 +8,8 @@ type Props = {
   params: { lessonName: string };
 };
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   const url = process.env.VERCEL_ENV
     ? `https://academy-t3-app-router.vercel.app/`
@@ -17,7 +19,7 @@ export async function generateStaticParams() {
   const lessons = await fetch(`${url}/api/lessons`, { method: "GET" }).then(
     (res) => res.json(),
   );
-
+  console.log({ lessons });
   return lessons.map((lesson: Lessons) => ({
     lessonName: lesson.lessonPath.replace("/fundamentals/", ""),
   }));
