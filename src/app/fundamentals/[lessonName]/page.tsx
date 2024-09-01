@@ -3,6 +3,7 @@ import { GetLessonContentByTrackAndLessonName } from "@/lib/lessons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Components from "@/components/mdx/Components";
 import { type Lessons } from "@prisma/client";
+import { getBaseUrl } from "@/lib/url";
 
 type Props = {
   params: { lessonName: string };
@@ -11,11 +12,11 @@ type Props = {
 export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
-  const url = process.env.VERCEL_ENV
-    ? `https://academy-t3-app-router.vercel.app/`
-    : "http://localhost:3000";
+  // const url = process.env.VERCEL_ENV ? getBaseUrl() : "http://localhost:3000";
+  const url = getBaseUrl();
 
   console.log("URL FINAL LESSONS 2: ", url);
+
   const lessons = await fetch(`${url}/api/lessons`, { method: "GET" }).then(
     (res) => res.json(),
   );
