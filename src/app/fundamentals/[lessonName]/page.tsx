@@ -8,18 +8,20 @@ type Props = {
   params: { lessonName: string };
 };
 
-// export async function generateStaticParams() {
-//   const url = process.env.NEXT_PUBLIC_VERCEL_ENV
-//     ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-//     : "http://localhost:3000";
+export async function generateStaticParams() {
+  const url = process.env.VERCEL_ENV
+    ? `https://academy-t3-app-router.vercel.app/`
+    : "http://localhost:3000";
 
-//   console.log("URL FINAL LESSONS 2: ", url);
-//   const lessons = await fetch(`${url}/api/lessons`).then((res) => res.json());
+  console.log("URL FINAL LESSONS 2: ", url);
+  const lessons = await fetch(`${url}/api/lessons`, { method: "GET" }).then(
+    (res) => res.json(),
+  );
 
-//   return lessons.map((lesson: Lessons) => ({
-//     lessonName: lesson.lessonPath.replace("/fundamentals/", ""),
-//   }));
-// }
+  return lessons.map((lesson: Lessons) => ({
+    lessonName: lesson.lessonPath.replace("/fundamentals/", ""),
+  }));
+}
 
 export default async function DynamicLessonPage({ params }: Props) {
   const content = await GetLessonContentByTrackAndLessonName(
