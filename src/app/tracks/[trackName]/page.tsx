@@ -7,21 +7,17 @@ import { TrackCard } from "@/components/TrackCard";
 import { api } from "@/trpc/server";
 import { headers } from "next/headers";
 import { type Tracks } from "@prisma/client";
+import { db } from "@/server/db";
 
-// export async function generateStaticParams() {
-//   const url = process.env.VERCEL_ENV
-//     ? `https://academy-t3-app-router.vercel.app/`
-//     : "http://localhost:3000";
-//   console.log("URL FINAL TRACKS: ", url);
+export async function generateStaticParams() {
+  const tracks = await db.tracks.findMany();
 
-//   const tracks = await fetch(`${url}/api/tracks`, { method: "GET" }).then(
-//     (res) => res.json(),
-//   ); // TODO: DEV_NOTE: We have to create the "URL" environment variable which changes from local/development/production environment. LOCAL is localhost, DEVELOPMENT is the vercel dynamic url and PRODUCTION is the academy domain
-//   console.log("TRACKSDATA ", { tracks });
-//   return tracks.tracks.map((track: Tracks) => ({
-//     trackName: track.trackPath.replace("/tracks/", ""),
-//   }));
-// }
+  console.log("TRACKSDATA ", { tracks });
+
+  return tracks.map((track: Tracks) => ({
+    trackName: track.trackPath.replace("/tracks/", ""),
+  }));
+}
 
 const DynamicTrackPage = async () => {
   const headerList = headers();

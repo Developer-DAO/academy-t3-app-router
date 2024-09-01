@@ -13,15 +13,6 @@ type Props = {
 export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
-  // const url = process.env.VERCEL_ENV ? getBaseUrl() : "http://localhost:3000";
-  // const url = getBaseUrl();
-
-  // console.log("URL FINAL LESSONS 2: ", url);
-
-  // const lessons = await fetch(`${url}/api/lessons`, { method: "GET" }).then(
-  //   (res) => res.json(),
-  // );
-
   const lessons = await db.lessons.findMany({
     where: {
       lessonPath: {
@@ -29,8 +20,6 @@ export async function generateStaticParams() {
       },
     },
   });
-
-  console.log("generateStaticParams ", { lessons });
 
   return lessons.map((lesson: Lessons) => ({
     lessonName: lesson.lessonPath.replace("/fundamentals/", ""),

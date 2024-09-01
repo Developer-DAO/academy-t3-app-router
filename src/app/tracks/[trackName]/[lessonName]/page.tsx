@@ -6,20 +6,20 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import Components from "@/components/mdx/Components";
 import { type Lessons } from "@prisma/client";
+import { db } from "@/server/db";
 
 type Props = {
   params: { trackName: string; lessonName: string };
 };
 
 // export async function generateStaticParams() {
-//   const url = process.env.VERCEL_ENV
-//     ? `https://academy-t3-app-router.vercel.app/`
-//     : "http://localhost:3000";
-
-//   console.log("URL FINAL LESSONS 1: ", url);
-//   const lessons = await fetch(`${url}/api/lessons`, { method: "GET" }).then(
-//     (res) => res.json(),
-//   );
+//   const lessons = await db.lessons.findMany({
+//     where: {
+//       lessonPath: {
+//         contains: "fundamentals",
+//       },
+//     },
+//   });
 
 //   return lessons.map((lesson: Lessons) => ({
 //     lessonName: lesson.lessonPath.replace("/fundamentals/", ""),
