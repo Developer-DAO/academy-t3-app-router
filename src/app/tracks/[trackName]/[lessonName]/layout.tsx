@@ -30,8 +30,8 @@ export async function generateMetadata(
         {
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/default-meta-image.png`
-              : "/meta-images/default-meta-image.png",
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/${lessonData?.metaImagePath}`
+              : `/${lessonData?.metaImagePath}`,
           alt: lessonData?.lessonDescription,
         },
       ],

@@ -23,15 +23,15 @@ export async function generateMetadata(
   });
 
   return {
-    title: lessonData?.lessonTitle,
+    title: `${lessonData?.lessonTitle} | Developer DAO Academy`,
     description: lessonData?.lessonDescription,
     openGraph: {
       images: [
         {
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/default-meta-image.png`
-              : "/default-meta-image.png",
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/${lessonData?.metaImagePath}`
+              : `/${lessonData?.metaImagePath}`,
           alt: lessonData?.lessonTitle,
         },
       ],

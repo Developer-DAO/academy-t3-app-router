@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import Link from "next/link";
 
 import Spinner from "@/components/Spinner";
@@ -28,7 +29,7 @@ const DynamicTrackPage = async () => {
     trackPath: pathname!,
   });
 
-  const tagsForThisTrack = trackData?.tags.map((tag) => tag.tag.tagName);
+  const tagsForThisTrack = trackData?.tags.map((tag) => tag.tag.tagName) ?? [];
 
   return (
     <div className="relative m-10 flex lg:mx-auto lg:max-w-screen-lg">
@@ -46,7 +47,7 @@ const DynamicTrackPage = async () => {
         trackAuthorImage="/authors/k4y1s.jpg"
         trackAuthorDescription="I'm a developer trying to break down complex concepts for the rest of us. I'm not smarter than you; I just have more time for research. Web and open-source enthusiast 💚"
         trackAuthorTwitter="K4y1s"
-        tags={tagsForThisTrack!}
+        tags={tagsForThisTrack}
       >
         <div className="mt-14 flex flex-col gap-8 lg:grid lg:w-full lg:grid-cols-3 lg:gap-10">
           {allLessonsData !== undefined && allLessonsData.length > 0 ? (

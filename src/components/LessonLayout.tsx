@@ -1,11 +1,4 @@
-"use client";
-
-// import AboutCourse from "@/components/AboutCourse";
-import { usePathname } from "next/navigation";
-
 import CreatedBy from "@/components/CreatedBy";
-import { api } from "@/trpc/react";
-// import PageSeoLayout from "@/components/PageSeoLayout";
 
 interface LessonLayoutProps {
   children: React.ReactNode;
@@ -28,29 +21,7 @@ export default function LessonLayout({
   authorImage,
   authorTwitter,
 }: LessonLayoutProps) {
-  const pathname = usePathname();
-
-  const { data: lessonData } = api.lessons.getLessonsByLessonPath.useQuery({
-    lessonPath: pathname,
-  });
-
   return (
-    // <PageSeoLayout
-    //   title={lessonTitle}
-    //   // This should be the individual lesson description eventually
-    //   description={lessonDescription}
-    //   openGraph={{
-    //     images: [
-    //       {
-    //         url:
-    //           process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-    //             ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/${lessonImage}`
-    //             : lessonImage,
-    //         alt: lessonTitle,
-    //       },
-    //     ],
-    //   }}
-    // >
     <main className="px-10 pt-36 text-white lg:mx-auto lg:max-w-screen-lg lg:pt-44">
       <section className="text-center">
         <h1 className="font-future text-3xl lg:text-6xl">{lessonTitle}</h1>
@@ -64,6 +35,5 @@ export default function LessonLayout({
         {children}
       </div>
     </main>
-    // </PageSeoLayout>
   );
 }

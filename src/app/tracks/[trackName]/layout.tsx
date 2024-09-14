@@ -5,7 +5,6 @@ import React from "react";
 import { api } from "@/trpc/server";
 import { type Metadata, type ResolvingMetadata } from "next";
 import { headers } from "next/headers";
-import { getMetaImageFromImgPath } from "@/utils/meta-images";
 
 type Props = {
   params: { trackName: string };
@@ -23,8 +22,6 @@ export async function generateMetadata(
     trackPath: pathname!,
   });
 
-  const metaImagePath = getMetaImageFromImgPath(trackData?.imgPath!);
-
   return {
     title: `${trackData?.trackTitle} | Developer DAO Academy`,
     description: trackData?.trackDescription,
@@ -33,8 +30,8 @@ export async function generateMetadata(
         {
           url:
             process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/meta-images/${metaImagePath}`
-              : `/meta-images/${metaImagePath}`,
+              ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/${trackData?.metaImagePath}`
+              : `/${trackData?.metaImagePath}`,
           alt: trackData?.trackTitle,
         },
       ],
