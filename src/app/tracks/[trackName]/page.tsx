@@ -55,6 +55,7 @@ const DynamicTrackPage = async () => {
               const tagsForThisLesson = lesson.tags.map(
                 (tag) => tag.tag.tagName,
               );
+              console.log({ tagsForThisLesson });
               return (
                 <Link href={lesson.lessonPath} key={idx} className="mx-auto">
                   <TrackCard
