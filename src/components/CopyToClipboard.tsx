@@ -1,3 +1,5 @@
+"use client";
+
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";

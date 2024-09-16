@@ -1,15 +1,13 @@
-"use client";
+"use server";
 
 import Link from "next/link";
-// import type { ReactElement } from "react";
 
 import Spinner from "@/components/Spinner";
-import { api } from "@/trpc/react";
+import { api } from "@/trpc/server";
 import { TrackCard } from "@/components/TrackCard";
 
-const FundamentalsPage = () => {
-  const { data: allLessonsData } =
-    api.lessons.getFundamentalLessonsByPath.useQuery();
+const FundamentalsPage = async () => {
+  const allLessonsData = await api.lessons.getFundamentalLessonsByPath();
 
   return (
     <div className="flex h-full w-full flex-col space-y-10 overflow-hidden bg-black lg:h-screen lg:max-h-screen lg:flex-row">
@@ -57,27 +55,5 @@ bg-[url('/bg_fundamentals.png')] bg-cover bg-center bg-no-repeat object-center p
     </div>
   );
 };
-
-// FundamentalsPage.getLayout = function getLayout(page: ReactElement) {
-//   return (
-//     <PageSeoLayout
-//       title="Web3 Coding Fundamentals"
-//       description="Learn the basics of web3 programming. Our Fundamentals cover wallets, RPCs, Smart Contract Testing, Command Line Basics and more."
-//       openGraph={{
-//         images: [
-//           {
-//             url:
-//               process.env.NEXT_PUBLIC_VERCEL_URL !== undefined
-//                 ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/academy-web3-fundamentals.png`
-//                 : "/academy-web3-fundamentals.png",
-//             alt: "Web3 Coding Fundamentals",
-//           },
-//         ],
-//       }}
-//     >
-//       {page}
-//     </PageSeoLayout>
-//   );
-// };
 
 export default FundamentalsPage;

@@ -1,17 +1,16 @@
-"use client";
+"use server";
 
 import Spinner from "@/components/Spinner";
 import { TrackCard } from "@/components/TrackCard";
-import { api } from "@/trpc/react";
+import { api } from "@/trpc/server";
 import { type Tags, type TagsOnTracks } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
 
- 
 type trackTagsRelation = TagsOnTracks & { tag: Tags };
 
-export default function TracksPage() {
-  const { data: allTracksData } = api.tracks.getAll.useQuery();
+export default async function TracksPage() {
+  const allTracksData = await api.tracks.getAll();
 
   return (
     <div className="flex h-full w-full flex-col space-y-10 overflow-hidden bg-black lg:h-screen lg:max-h-screen lg:flex-row">
