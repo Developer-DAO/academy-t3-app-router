@@ -14,6 +14,11 @@ import QuizStatusChecker from "@/components/mdx/QuizStatusChecker";
 import SideDrawer from "@/components/mdx/SideDrawer";
 import LessonLayout from "@/components/LessonLayout";
 import { type MDXComponents } from "mdx/types";
+import CliLesson from "@/contents/fundamentals/cli_lesson.mdx";
+import InstallNpm from "@/contents/fundamentals/install-npm.mdx";
+import OpenZeppelin from "@/contents/fundamentals/open_zeppelin.mdx";
+import TokenStandards from "@/contents/fundamentals/token-standards.mdx";
+import DecentralizedStorage from "@/contents/fundamentals/decentralized-storage.mdx";
 
 const Components: MDXComponents = {
   code: (props: any) => {
@@ -60,6 +65,11 @@ const Components: MDXComponents = {
   LessonQuestionsModal,
   LessonInformationalModal,
   QuizCompletedModals,
+  CliLesson,
+  InstallNpm,
+  OpenZeppelin,
+  TokenStandards,
+  DecentralizedStorage,
 };
 
 export default Components;

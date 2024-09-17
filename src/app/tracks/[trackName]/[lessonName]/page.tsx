@@ -20,10 +20,20 @@ export async function generateStaticParams({ params }: Props) {
     },
   });
 
-  return lessons.map((lesson: LessonWithTrack) => ({
-    trackName: lesson.track.trackPath.replace(`/tracks/`, ""),
-    lessonName: lesson.lessonPath.replace(`/tracks/${params.trackName}/`, ""),
-  }));
+  return lessons
+    .filter(
+      (lesson: LessonWithTrack) =>
+        !lesson.lessonPath.includes("/fundamentals/"),
+    )
+    .map((lesson: LessonWithTrack) => {
+      const trackName = lesson.track.trackPath.replace(`/tracks/`, "");
+      const lessonName = lesson.lessonPath.replace(`/tracks/${trackName}/`, "");
+
+      return {
+        trackName: trackName,
+        lessonName: lessonName,
+      };
+    });
 }
 
 export default async function DynamicLessonPage({ params }: Props) {
