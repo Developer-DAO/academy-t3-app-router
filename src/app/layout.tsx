@@ -12,7 +12,11 @@ import SessionProvider from "@/components/SessionProvider";
 import { getServerSession } from "next-auth";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : "http://localhost:3000",
+  ),
   title: {
     template: "%s | Developer DAO Academy",
     default: "Learn web3 with Friends | Developer DAO Academy",
