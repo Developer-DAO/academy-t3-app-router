@@ -74,13 +74,13 @@ export const Footer = () => {
           : "md:block"
       }  ${
         pathname === "/"
-          ? "absolute -bottom-[1750px] md:-bottom-[1600px]"
-          : "-bottom-[960px] mt-10"
+          ? "absolute -bottom-[1900px] md:-bottom-[1600px]"
+          : "-bottom-[960px] mt-[20px]"
       } z-50 w-full px-[15px] md:px-[30px]`}
     >
       <div>
         {/* border */}
-        <div className=" mb-10 h-[1px] border border-gray-300 md:mx-[110px]" />
+        <div className=" mb-10 mt-5 h-[1px] border border-gray-300 md:mx-[110px] md:mb-5 md:mt-10" />
         <div className="footer ">
           <nav
             aria-label="social"

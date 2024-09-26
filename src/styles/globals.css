@@ -324,7 +324,7 @@
 }
 
 .footer {
-  @apply flex min-h-[224px] flex-col items-center gap-y-8  sm:flex-row-reverse sm:justify-between;
+  @apply flex min-h-[210px] flex-col items-center gap-y-8  sm:flex-row-reverse sm:justify-between;
   @apply border-white text-white;
   @apply px-0 pb-8 pt-0 text-xs font-semibold md:text-sm;
 }
