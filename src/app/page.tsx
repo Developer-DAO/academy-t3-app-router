@@ -50,7 +50,7 @@ export default async function HomePage() {
         </div>
 
         {/* Banner Section */}
-        <div className="relative z-20 flex flex-col items-center justify-center pb-[400px]">
+        <div className="relative z-20 flex flex-col items-center justify-center pb-[550px]">
           <div className="m-5 md:p-0">
             <div id="learn-web3" className="lg:pt-16">
               <LearnWeb3Banner href="/tracks" />

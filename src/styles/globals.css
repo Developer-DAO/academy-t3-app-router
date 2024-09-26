@@ -238,7 +238,7 @@
 }
 
 .top-nav {
-  @apply h-[62px] w-min max-w-lg rounded-[51px] border-2 border-[var(--academy-dark)] px-4 py-6;
+  @apply h-[62px] w-min rounded-[51px] border-2 border-[var(--academy-dark)] px-4 py-6;
 }
 
 .top-nav .nav {
@@ -286,7 +286,6 @@
 .banner {
   @apply gradient-neutral flex w-full items-start justify-between rounded-[51px];
   @apply max-w-screen-2xl gap-x-6 gap-y-10 border-none border-[var(--gray-white)] p-2 shadow-sm md:p-4 lg:p-7;
-  /* @apply ring-[2px] ring-inset ring-[#E9E9E920] ring-offset-0; */
 }
 
 .banner .title {
@@ -325,9 +324,9 @@
 }
 
 .footer {
-  @apply flex min-h-[224px] flex-col items-center gap-y-8 border-t sm:flex-row-reverse sm:justify-between;
+  @apply flex min-h-[224px] flex-col items-center gap-y-8  sm:flex-row-reverse sm:justify-between;
   @apply border-white text-white;
-  @apply mt-20 px-0 py-8 text-xs font-semibold md:text-sm;
+  @apply px-0 pb-8 pt-0 text-xs font-semibold md:text-sm;
 }
 
 .footer nav {
