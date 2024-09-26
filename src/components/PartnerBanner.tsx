@@ -11,8 +11,8 @@ export interface PartnerBannerProps extends HomePageBannerProps {
 
 export const PartnerBanner: FC<PartnerBannerProps> = ({ href, imgSrc }) => {
   return (
-    <div className=" banner  !border-none !bg-opacity-20 !bg-gradient-to-tr from-stone-700 from-10% via-black via-60% to-[#727171]  to-90% !p-[2px] md:flex-col lg:flex-row">
-      <Card className=" banner !md:flex-col !border-none !bg-black !bg-opacity-85 lg:flex-row">
+    <div className=" banner  !border-none !bg-opacity-10 !bg-gradient-to-tr from-stone-700 from-10% via-black via-60% to-[#727171]  to-90% !p-[2px] md:flex-col lg:flex-row">
+      <Card className=" banner !md:flex-col !border-none !bg-black !bg-opacity-90 lg:flex-row">
         <div className=" flex flex-col-reverse items-center justify-center md:w-[78rem] md:flex-row">
           <div className="mb-8 md:mb-0 md:py-[25px] md:pl-[30px] md:pr-[200px]">
             <CardHeader className="flex-row justify-center">

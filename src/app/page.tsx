@@ -14,7 +14,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 z-10 w-screen bg-black opacity-50"></div>
 
         {/* Hero Section */}
-        <div className="relative z-20 pt-[150px] md:pb-[118px] md:pt-[330px]">
+        <div className="relative z-20 pt-[185px] md:pb-[118px] md:pt-[330px]">
           <div className="flex flex-col items-center justify-center text-white">
             <h1 className="text-bttf text-center text-5xl text-[50px] tracking-wide lg:text-[100px]">
               <span className="md:ml-[50px]">LEArn</span>

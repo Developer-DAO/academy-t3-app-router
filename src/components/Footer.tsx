@@ -72,13 +72,15 @@ export const Footer = () => {
         pathname === "/tracks" || pathname === "/fundamentals"
           ? "md:hidden"
           : "md:block"
-      } absolute ${
-        pathname === "/" ? "-bottom-[1600px]" : "-bottom-[960px] "
+      }  ${
+        pathname === "/"
+          ? "absolute -bottom-[1750px] md:-bottom-[1600px]"
+          : "-bottom-[960px] mt-10"
       } z-50 w-full px-[15px] md:px-[30px]`}
     >
       <div>
         {/* border */}
-        <div className=" h-[1px] border border-gray-300 md:mx-[110px]" />
+        <div className=" mb-10 h-[1px] border border-gray-300 md:mx-[110px]" />
         <div className="footer ">
           <nav
             aria-label="social"
