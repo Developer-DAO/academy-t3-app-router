@@ -66,7 +66,7 @@ const PageHeader: FunctionComponent = () => {
       </div>
 
       <div className={` hidden md:block`}>
-        <TopBar menus={topbarNavMenus} />
+        <TopBar menus={topbarNavMenus} pathName={pathname} />
       </div>
 
       <div>

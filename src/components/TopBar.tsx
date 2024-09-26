@@ -25,6 +25,7 @@ interface NavItem {
 
 export interface TopBarProps {
   menus: NavItem[];
+  pathName?: string;
 }
 
 const renderSubmenus = (submenus: SubNavItem[]): JSX.Element[] | undefined => {
@@ -77,13 +78,21 @@ const TopBarItem: FC<NavItem> = ({ name, icon, href, subnavs }) => {
   );
 };
 
-const TopBar: FC<TopBarProps> = ({ menus }) => {
+const TopBar: FC<TopBarProps> = ({ menus, pathName }) => {
   return (
-    <NavigationMenu className="top-nav gradient-blur  ">
-      <NavigationMenuList className="gap-x-4">
-        {renderMenus({ menus })}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <>
+      {pathName === "/" ||
+      pathName === "/tracks" ||
+      pathName === "/fundamentals" ? (
+        <NavigationMenu className="top-nav gradient-blur  ">
+          <NavigationMenuList className="gap-x-4">
+            {renderMenus({ menus })}
+          </NavigationMenuList>
+        </NavigationMenu>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
