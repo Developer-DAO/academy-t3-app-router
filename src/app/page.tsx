@@ -3,6 +3,7 @@ import Link from "next/link";
 import LearnWeb3Banner from "@/components/LearnWeb3Banner";
 import PartnerBanner from "@/components/PartnerBanner";
 import { Icons } from "@/components/Icons";
+import Image from "next/image";
 
 export default async function HomePage() {
   return (
@@ -25,12 +26,12 @@ export default async function HomePage() {
               <span className="relative flex items-baseline justify-end gap-x-2 md:ml-[20px]">
                 FRIENDS
                 <span className=" -right-20 bottom-0 ml-2 h-[25px] w-[25px] overflow-hidden rounded-full md:absolute md:ml-5 md:h-[50px] md:w-[50px]">
-                  {/* <Image
+                  <Image
                     alt="devIcon"
                     src={"/dd_nft2.png"}
                     width={500}
                     height={500}
-                  /> */}
+                  />
                 </span>
               </span>
             </h1>
