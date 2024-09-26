@@ -25,7 +25,7 @@ export default async function HomePage() {
               <br />
               <span className="relative flex items-baseline justify-end gap-x-2 md:ml-[20px]">
                 FRIENDS
-                <span className=" -right-20 bottom-0 ml-2 h-[25px] w-[25px] overflow-hidden rounded-full md:absolute md:ml-5 md:h-[50px] md:w-[50px]">
+                <span className=" absolute -right-8 bottom-0 ml-2 h-[25px] w-[25px] overflow-hidden rounded-full md:-right-20 md:ml-5 md:h-[50px] md:w-[50px]">
                   <Image
                     alt="devIcon"
                     src={"/dd_nft2.png"}
