@@ -372,7 +372,7 @@
   @apply mx-auto text-center text-xl font-light md:text-2xl;
 }
 
-.dd-nft {
+/* .dd-nft {
   @apply h-screen max-h-[547px] w-full  md:max-h-[1024px] md:w-1/2;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
@@ -382,7 +382,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
+} */
 
 /* width */
 ::-webkit-scrollbar {
