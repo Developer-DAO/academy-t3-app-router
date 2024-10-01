@@ -111,6 +111,10 @@ model Tracks {
   visible Boolean @default(true)
   contributors ContributorsOnTracks[]
   metaImagePath String @default("")
+  trackAuthor String? @default("")
+  trackAuthorImage String? @default("")
+  trackAuthorDescription String? @default("")
+  trackAuthorTwitter String? @default("")
 }
 
 model TagsOnTracks {
@@ -141,7 +145,7 @@ model ContributorsOnLessons {
   contributor   Contributors @relation(fields: [contributorId], references: [id])
   contributorId String
   assignedAt DateTime @default(now())
-  typeOfContribution String 
+  typeOfContribution String  // author", "coauthor", "editor
   @@id([lessonId, contributorId])
 }
 
@@ -152,6 +156,6 @@ model ContributorsOnTracks {
   contributor   Contributors @relation(fields: [contributorId], references: [id])
   contributorId String
   assignedAt DateTime @default(now())
-  typeOfContribution String 
+  typeOfContribution String // author", "coauthor", "editor
   @@id([trackId, contributorId])
 }
