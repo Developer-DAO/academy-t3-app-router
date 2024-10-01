@@ -38,15 +38,10 @@ const DynamicTrackPage = async () => {
         trackDescription={
           trackData?.trackDescription ? trackData?.trackDescription : ""
         }
-        trackAuthor={
-          trackData?.authors?.length && trackData?.authors[0]
-            ? trackData?.authors[0]
-            : ""
-        }
-        // TODO: DEV_NOTE: We need to populate the database with authors information and authors relationship with tracks and lessons using prisma studio: yarn db:studio
-        trackAuthorImage="/authors/k4y1s.jpg"
-        trackAuthorDescription="I'm a developer trying to break down complex concepts for the rest of us. I'm not smarter than you; I just have more time for research. Web and open-source enthusiast 💚"
-        trackAuthorTwitter="K4y1s"
+        trackAuthor={trackData?.trackAuthor ?? ""}
+        trackAuthorImage={trackData?.trackAuthorImage ?? "/authors/default.png"}
+        trackAuthorDescription={trackData?.trackAuthorDescription ?? ""}
+        trackAuthorTwitter={trackData?.trackAuthorTwitter ?? ""}
         tags={tagsForThisTrack}
       >
         <div className="mt-14 flex flex-col gap-8 lg:grid lg:w-full lg:grid-cols-3 lg:gap-10">
