@@ -26,7 +26,10 @@ const SideBar: FC<SideBarProps> = ({ menus }) => {
       <SheetTrigger asChild className="text-[#44AF96]">
         <Icons.hamburger_menu className="h-8 w-auto max-w-8" />
       </SheetTrigger>
-      <SheetContent side="left" className="w-full bg-black pt-12 md:max-w-sm">
+      <SheetContent
+        side="left"
+        className="w-full bg-black pt-12 text-white md:max-w-sm"
+      >
         <div className="gap-4 pt-12">
           {menus.map((menu, key) => (
             <div key={key} className={`mobile-nav-item font-deathstar`}>

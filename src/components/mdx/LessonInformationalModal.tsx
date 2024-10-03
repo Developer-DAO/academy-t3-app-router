@@ -29,7 +29,7 @@ export default function LessonInformationalModal({
         <DialogHeader>
           <DialogTitle className="m-2 font-clash-display text-lg font-bold text-white lg:text-3xl">
             <div className="w-full text-right text-[#44AF96]">
-              <DialogTrigger className="font-semibold	">X</DialogTrigger>
+              <DialogTrigger className="font-semibold">X</DialogTrigger>
             </div>
             {title}
           </DialogTitle>
