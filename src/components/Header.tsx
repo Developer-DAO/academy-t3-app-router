@@ -73,8 +73,14 @@ const PageHeader: FunctionComponent = () => {
         {pathname === "/" ||
         pathname === "/tracks" ||
         pathname === "/fundamentals" ? (
-          <div className="inline-flex gap-2">
+          <div className="inline-flex items-center gap-5">
             {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
+            <Link
+              href={"/myProfile"}
+              className=" font-medium text-white underline "
+            >
+              My Profile
+            </Link>
             <ConnectButton />
           </div>
         ) : (
@@ -82,6 +88,7 @@ const PageHeader: FunctionComponent = () => {
             <BackButton className="lg:hidden" />
             <div className="hidden gap-2 lg:inline-flex">
               {/* <ThemeToggleButton hidden={pathname !== "/" && isConnected ? false : true} /> */}
+
               <ConnectButton />
             </div>
           </>
