@@ -39,6 +39,9 @@ interface DDIcons {
   moon_light: (props: LucideProps) => JSX.Element;
   more_horizontal: (props: LucideProps) => JSX.Element;
   share: (props: LucideProps) => JSX.Element;
+  completed: (props: LucideProps) => JSX.Element;
+  nftminted: (props: LucideProps) => JSX.Element;
+  progress: (props: LucideProps) => JSX.Element;
 }
 
 export const Icons: DDIcons = {
@@ -46,6 +49,65 @@ export const Icons: DDIcons = {
   moon: (props: LucideProps) => <Moon {...props} />,
   info: (props: LucideProps) => <Info {...props} />,
   twitter: (props: LucideProps) => <Twitter {...props} />,
+
+  progress: (props: LucideProps) => (
+    <svg
+      width={34}
+      height={34}
+      viewBox="0 0 34 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17 8v2.25m6.364.386l-1.591 1.591M26 17h-2.25m-.386 6.364l-1.591-1.591M17 26v-2.25m-6.364-.386l1.591-1.591M8 17h2.25m.386-6.364l1.591 1.591M17 32c8.285 0 15-6.715 15-15 0-8.284-6.715-15-15-15C8.716 2 2 8.716 2 17c0 8.285 6.716 15 15 15z"
+        stroke="#44AF96"
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+
+  nftminted: (props: LucideProps) => (
+    <svg
+      width={30}
+      height={33}
+      viewBox="0 0 30 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.263 16.5c.838 0 1.64-.316 2.233-.879a2.926 2.926 0 00.925-2.121c0-.796-.333-1.559-.925-2.121a3.244 3.244 0 00-2.233-.879c-.837 0-1.64.316-2.233.879a2.926 2.926 0 00-.925 2.121c0 .796.333 1.559.925 2.121a3.244 3.244 0 002.233.879zM15 0l15 8.25v16.5L15 33 0 24.75V8.25L15 0zM3.158 9.98v13.04l3.745 2.06L19.65 16.2l7.192 4.101V9.981L15 3.465 3.158 9.979z"
+        fill="#44AF96"
+      />
+    </svg>
+  ),
+  completed: (props: LucideProps) => (
+    <svg
+      width={33}
+      height={33}
+      viewBox="0 0 33 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M30.846 16.625c0-7.936-6.46-14.375-14.423-14.375S2 8.689 2 16.625 8.46 31 16.423 31s14.423-6.439 14.423-14.375z"
+        stroke="#44AF96"
+        strokeWidth={3}
+        strokeMiterlimit={10}
+      />
+      <path
+        d="M22.77 12.25l-8.078 10-3.461-4"
+        stroke="#44AF96"
+        strokeWidth={3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
   share: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
