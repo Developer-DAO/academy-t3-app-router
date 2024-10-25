@@ -111,7 +111,6 @@ export const tracksRouter = createTRPCRouter({
         },
       });
     }),
-
   getTrackByPathname: publicProcedure
     .input(z.object({ trackPath: z.string() }))
     .query(async ({ input, ctx }) => {
@@ -136,4 +135,41 @@ export const tracksRouter = createTRPCRouter({
 
       return track;
     }),
+  getCompletedTracks: protectedProcedure.query(async ({ input, ctx }) => {
+    const userId = ctx.session.user.id;
+    const tracks = await ctx.db.tracks.findMany({
+      include: {
+        lessons: true,
+      },
+      where: {
+        stagingVisible: {
+          equals: true,
+        },
+      },
+    });
+    console.log({ tracks });
+
+    const tracksWithCompletedLessonsByUserIdCount = tracks.map(
+      async (track) => {
+        const result = track.lessons.map(async (lesson) => {
+          const completedQuiz = await ctx.db.completedQuizzes.findFirst({
+            where: {
+              lessonId: {
+                equals: lesson.id,
+              },
+              AND: {
+                userId: {
+                  equals: userId,
+                },
+              },
+            },
+          });
+          return { ...lesson, completed: Boolean(completedQuiz) };
+        });
+        return result;
+      },
+    );
+    console.log({ tracksWithCompletedLessonsByUserIdCount });
+    return tracksWithCompletedLessonsByUserIdCount;
+  }),
 });
